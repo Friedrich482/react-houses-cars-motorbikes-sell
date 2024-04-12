@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./assets/imgs/house-interior.avif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+#root {
+  width: 100%;
+}
