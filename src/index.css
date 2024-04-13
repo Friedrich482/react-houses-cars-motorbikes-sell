@@ -6,12 +6,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("./assets/imgs/house-interior.avif");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: rgb(241, 241, 241);
   background-attachment: fixed;
-  font-family: cursive;
+  font-family: "__geistSansFont_deb525", arial;
   font-weight: 400;
   font-style: normal;
 }
