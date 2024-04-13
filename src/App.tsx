@@ -2,6 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Houses from "./components/House";
 import Footer from "./components/Footer";
+import Dialog from "./components/Dialog";
 import { ToastContainer } from "react-toastify";
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Houses />
         </main>
         <Footer />
+        <Dialog />
       </div>
       <ToastContainer className="" />
     </>
