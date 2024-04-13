@@ -1,20 +1,14 @@
 import House from "./House";
 import HousesData from "./HousesData";
-import type { HousesProps } from "../../types";
-const Houses = ({
-  houseSold,
-  setHouseSold,
-  handleSoldButtonClick,
-}: HousesProps) => {
-  return HousesData.map(({ src, id, price, location }) => (
+const Houses = () => {
+  return HousesData.map(({ src, id, price, location, sold }) => (
     <House
       src={src}
       id={id}
+      key={id}
       price={price}
       location={location}
-      houseSold={houseSold}
-      setHouseSold={setHouseSold}
-      handleSoldButtonClick={handleSoldButtonClick}
+      sold={sold}
     />
   ));
 };
