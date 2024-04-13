@@ -2,13 +2,16 @@ import { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import type { HouseProps } from "../../types";
+import { toast } from "react-toastify";
 
-const House = ({ src, id, price, location }: HouseProps) => {
-  const [houseSold, setHouseSold] = useState(false);
-
-  const handleSoldButtonClick = (previousState: boolean) => {
-    if (!previousState) {
-      setHouseSold(!previousState);
+const House = ({ src, id, price, location, sold }: HouseProps) => {
+  const [houseSold, setHouseSold] = useState(sold);
+  const handleSoldButtonClick = (prevState: boolean) => {
+    if (!prevState) {
+      setHouseSold(!prevState);
+      toast.success(
+        `House successfully sold ! ${price} have been taken from your account`,
+      );
     }
   };
   return (
