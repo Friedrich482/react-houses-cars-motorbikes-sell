@@ -3,7 +3,7 @@ import { CiLight } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa";
 import { FaDesktop } from "react-icons/fa";
 import { MdSell } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Header = () => {
   const [dropDownList, setDropDownList] = useState(false);
   const darkModeButtonHandler = (previousState: boolean) => {
@@ -11,13 +11,14 @@ const Header = () => {
   };
   const [dark, setDark] = useState(false);
   const darkHandler = (previousState: boolean) => {
-    previousState = true;
-    setDark(previousState);
+    !previousState ? setDark(!previousState) : true;
   };
   const lightHandler = (previousState: boolean) => {
-    previousState = false;
-    setDark(previousState);
+    previousState ? setDark(!previousState) : true;
   };
+  useEffect(() => {
+    console.log(dark);
+  }, [dark]);
   return (
     <header className="mt-6 flex flex-col items-end justify-center text-black">
       <nav className="flex w-full flex-row items-center justify-start text-xl">
@@ -51,7 +52,6 @@ const Header = () => {
             className="flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1 pl-2 text-start hover:bg-stone-800"
             onClick={() => {
               lightHandler(dark);
-              console.log(dark);
             }}
           >
             <CiLight className="text-white" />
@@ -61,7 +61,6 @@ const Header = () => {
             className="flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start hover:bg-stone-800"
             onClick={() => {
               darkHandler(dark);
-              console.log(dark);
             }}
           >
             <MdDarkMode className="" />
