@@ -33,9 +33,12 @@ const Header = ({ dark, setDark }: DarkModeProps) => {
   }, [ref, dropDownList]);
   return (
     <header
-      className={`mt-6  flex flex-col items-end justify-center p-2 text-black ${dark ? "bg-default-black" : " bg-default-white"} transition duration-300 `}
+      className={`mt-6 flex flex-col items-end justify-center p-2 text-black ${dark ? "bg-default-black" : " bg-default-white"} transition duration-300 `}
     >
-      <nav className="flex w-full flex-row items-center justify-start text-xl">
+      <nav
+        className={` fixed top-0 z-10 flex min-h-14 w-full flex-row items-center justify-start border-b backdrop-opacity-100 ${dark ? "border-b-stone-600" : "border-b-black"}  text-xl backdrop-blur-lg`}
+      >
+        {" "}
         <div className="flex w-3/12 flex-row items-center justify-start pl-12">
           <MdSell className={`size-6 ${dark ? "text-white" : "text-black"}`} />
           <p
@@ -80,7 +83,7 @@ const Header = ({ dark, setDark }: DarkModeProps) => {
         </div>
       </nav>
 
-      <span className="z-10 h-0" ref={ref}>
+      <span className="fixed z-10 h-0" ref={ref}>
         <ul
           className={`mr-3 w-32 flex-col rounded-lg p-1  text-base text-white ring-1 ring-stone-800 ${dropDownList ? "flex" : "invisible"} ${dark ? "bg-default-black text-white" : "bg-default-white"}`}
         >
