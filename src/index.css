@@ -6,7 +6,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(241, 241, 241);
+  /* background-color: rgb(241, 241, 241); */
   background-attachment: fixed;
   font-family: "__geistSansFont_deb525", arial;
   font-weight: 400;

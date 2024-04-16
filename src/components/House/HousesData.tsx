@@ -41,7 +41,7 @@ const HousesData = [
     src: House4,
     location: "Detroit",
     price: 150000,
-    sold: true,
+    sold: false,
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const HousesData = [
     src: House7,
     location: "Kansas City",
     price: 120000,
-    sold: true,
+    sold: false,
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ const HousesData = [
     src: House10,
     location: "Philadelphia",
     price: 150000,
-    sold: true,
+    sold: false,
   },
   {
     id: 11,
@@ -104,7 +104,7 @@ const HousesData = [
     src: House13,
     location: "Los Angeles",
     price: 120000,
-    sold: true,
+    sold: false,
   },
   {
     id: 14,
