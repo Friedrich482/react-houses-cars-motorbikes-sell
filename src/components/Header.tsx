@@ -4,21 +4,19 @@ import { FaGithub } from "react-icons/fa";
 import { FaDesktop } from "react-icons/fa";
 import { MdSell } from "react-icons/md";
 import { useState } from "react";
-const Header = () => {
+import type { DarkModeProps } from "../types";
+const Header = ({ dark, setDark }: DarkModeProps) => {
   const [dropDownList, setDropDownList] = useState(false);
   const darkModeButtonHandler = (previousState: boolean) => {
     setDropDownList(!previousState);
   };
-  const [dark, setDark] = useState(false);
   const darkHandler = (previousState: boolean) => {
     !previousState ? setDark(!previousState) : true;
   };
   const lightHandler = (previousState: boolean) => {
     previousState ? setDark(!previousState) : true;
   };
-  // useEffect(() => {
-  //   console.log(dark);
-  // }, [dark]);
+
   return (
     <header
       className={`mt-6  flex flex-col items-end justify-center p-2 text-black ${dark ? "bg-default-black" : " bg-default-white"} transition duration-300 `}
@@ -72,7 +70,7 @@ const Header = () => {
 
       <span className="z-10 h-0">
         <ul
-          className={`mr-3 w-32 flex-col rounded-lg bg-default-white p-1  text-base text-white ring-1 ring-stone-800 ${dropDownList ? "flex" : "invisible"} ${dark ? " bg-default-black" : ""}`}
+          className={`mr-3 w-32 flex-col rounded-lg p-1  text-base text-white ring-1 ring-stone-800 ${dropDownList ? "flex" : "invisible"} ${dark ? "bg-default-black text-white" : "bg-default-white"}`}
         >
           <li
             className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start ${dark ? "  hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
@@ -84,7 +82,7 @@ const Header = () => {
             Light
           </li>
           <li
-            className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start ${dark ? "  hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
+            className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg   p-1 pl-2 text-start ${dark ? " hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
             onClick={() => {
               darkHandler(dark);
             }}

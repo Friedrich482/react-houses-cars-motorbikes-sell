@@ -5,3 +5,8 @@ export type HouseProps = {
   location: string;
   sold: boolean;
 };
+
+export type DarkModeProps = {
+  dark: boolean;
+  setDark: React.Dispatch<React.SetStateAction<boolean>>;
+};

@@ -1,16 +1,26 @@
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { TbMailFilled } from "react-icons/tb";
-const Footer = () => {
-  const date = new Date();
+import type { DarkModeProps } from "../types";
+const Footer = ({ dark }: DarkModeProps) => {
   return (
-    <footer className="flex flex-col items-center justify-center border-t-4 border-t-black bg-white text-center text-2xl text-black">
-      <p>&copy; {date.getFullYear()}, Friedrich482, All rights reserved</p>
-      <div className=" mb-3 flex flex-row gap-1">
-        <FaGithub className="size-10 transform cursor-pointer rounded-lg p-1 duration-500 hover:scale-110 hover:shadow-md hover:shadow-black" />
-        <FaLinkedin className="size-10 transform cursor-pointer rounded-lg p-1 duration-500 hover:scale-110 hover:shadow-md hover:shadow-black" />
-        <TbMailFilled className="size-10 transform cursor-pointer rounded-lg p-1 duration-500 hover:scale-110 hover:shadow-md hover:shadow-black" />
-      </div>
+    <footer
+      className={`flex flex-col items-center justify-center text-center text-2xl ${dark ? " bg-default-black text-white" : " bg-default-white text-black"}`}
+    >
+      <p className="mb-2 text-base">
+        Built by{" "}
+        <a
+          target="_blank"
+          href="https://github.com/Friedrich482"
+          className="underline"
+        >
+          Friedrich482
+        </a>
+        . The code source is available on{" "}
+        <a
+          href="https://github.com/Friedrich482/react-mp-App"
+          className="underline"
+        >
+          GitHub.
+        </a>
+      </p>
     </footer>
   );
 };
