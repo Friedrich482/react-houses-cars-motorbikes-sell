@@ -5,7 +5,7 @@ const Header = ({ dark, setDark }: DarkModeProps) => {
   return (
     <header
       className={tm(
-        "mt-6 flex flex-col items-end justify-center bg-default-white p-2 text-black transition duration-300",
+        "flex flex-col items-end justify-center bg-default-white text-black transition duration-300 sm:mt-6 sm:p-2",
         dark && "bg-default-black",
       )}
     >

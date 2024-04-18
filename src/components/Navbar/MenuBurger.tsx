@@ -7,7 +7,7 @@ const MenuBurger = ({ dark }: DarkModeProps) => {
     <span className="z-20 inline h-0 place-self-start">
       <div
         className={tm(
-          "flex h-screen flex-col items-center justify-start border border-stone-600 bg-default-white pt-5 sm:hidden",
+          "flex h-dvh w-[22rem] min-w-48 max-w-[32.4rem] flex-col items-center justify-start border border-stone-600 bg-default-white pt-5 sm:hidden",
           dark && "text-default-white",
         )}
       >
@@ -16,7 +16,7 @@ const MenuBurger = ({ dark }: DarkModeProps) => {
           <p className={tm("cursor-pointer text-black", dark && "text-white")}>
             Friedrich Sell's
           </p>
-          <IoIosClose className="align-self-end size-6 rounded-md border border-black" />
+          <IoIosClose className="align-self-end size-6 cursor-pointer rounded-md border border-black" />
         </div>
 
         <ul className="flex flex-col items-start justify-center">
