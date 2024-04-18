@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Houses from "./components/House";
 import Footer from "./components/Footer";
 import Dialog from "./components/Dialog";
+import { twMerge as tm } from "tailwind-merge";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 function App() {
@@ -11,7 +12,10 @@ function App() {
   return (
     <>
       <div
-        className={`align-center flex flex-col justify-center gap-12 ${dark ? "bg-default-black" : "bg-default-white"} transition duration-300`}
+        className={tm(
+          "align-center flex flex-col justify-center gap-12 bg-default-white transition duration-300",
+          dark && "bg-default-black",
+        )}
       >
         <Header dark={dark} setDark={setDark} />
         <main className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
@@ -20,7 +24,7 @@ function App() {
         <Footer dark={dark} setDark={setDark} />
         <Dialog />
       </div>
-      <ToastContainer className="" />
+      <ToastContainer />
     </>
   );
 }
