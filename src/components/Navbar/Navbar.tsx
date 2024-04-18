@@ -4,6 +4,7 @@ import { CiLight } from "react-icons/ci";
 import { FaGithub, FaDesktop } from "react-icons/fa";
 import type { DarkModeProps } from "../../types";
 import { twMerge as tm } from "tailwind-merge";
+
 const Navbar = ({ dark, setDark }: DarkModeProps) => {
   const [dropDownList, setDropDownList] = useState(false);
   const darkModeButtonHandler = (previousState: boolean) => {
