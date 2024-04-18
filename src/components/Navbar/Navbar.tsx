@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdSell } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa";
-import { FaDesktop } from "react-icons/fa";
-import { MdSell } from "react-icons/md";
+import { FaGithub, FaDesktop } from "react-icons/fa";
 import type { DarkModeProps } from "../../types";
+import { twMerge as tm } from "tailwind-merge";
 const Navbar = ({ dark, setDark }: DarkModeProps) => {
   const [dropDownList, setDropDownList] = useState(false);
   const darkModeButtonHandler = (previousState: boolean) => {
@@ -35,32 +34,45 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
   return (
     <>
       <nav
-        className={` fixed top-0 z-10 flex min-h-14 w-full flex-row items-center justify-start border-b backdrop-opacity-100 ${dark ? "border-b-stone-600" : "border-b-black"}  hidden text-xl backdrop-blur-lg sm:flex`}
+        className={tm(
+          "fixed top-0 z-10 hidden min-h-14 w-full flex-row items-center justify-start border-b border-b-black text-xl backdrop-blur-lg backdrop-opacity-100 sm:flex",
+          dark && "border-b-stone-600",
+        )}
       >
         {" "}
         <div className="flex w-5/12 flex-row items-center justify-start gap-2 pl-12">
-          <MdSell className={`size-6 ${dark ? "text-white" : "text-black"}`} />
-          <p
-            className={`cursor-pointer  ${dark ? "text-white" : "text-black"}`}
-          >
+          <MdSell className={tm("size-6 text-black", dark && "text-white")} />
+          <p className={tm("cursor-pointer text-black", dark && "text-white")}>
             Friedrich Sell's
           </p>
         </div>
         <ul
-          className={`flex w-5/12 items-center justify-end gap-5 ${dark ? "text-stone-400" : "text-stone-500"}`}
+          className={tm(
+            "flex w-5/12 items-center justify-end gap-5 text-stone-500",
+            dark && "text-stone-400",
+          )}
         >
           <li
-            className={`cursor-pointer ${dark ? "hover:text-white" : "hover:text-black"} `}
+            className={tm(
+              "cursor-pointer hover:text-black",
+              dark && "hover:text-white",
+            )}
           >
             Houses
           </li>
           <li
-            className={`cursor-pointer ${dark ? "hover:text-white" : "hover:text-black"} `}
+            className={tm(
+              "cursor-pointer hover:text-black",
+              dark && "hover:text-white",
+            )}
           >
             Cars
           </li>
           <li
-            className={`cursor-pointer ${dark ? "hover:text-white" : "hover:text-black"} `}
+            className={tm(
+              "cursor-pointer hover:text-black",
+              dark && "hover:text-white",
+            )}
           >
             Motorbikes
           </li>
@@ -70,15 +82,21 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
             onClick={() => {
               darkModeButtonHandler(dropDownList);
             }}
-            className={` flex cursor-pointer items-center justify-center p-3 hover:rounded-lg ${dark ? "hover:bg-neutral-800" : "hover:bg-neutral-300"}`}
+            className={tm(
+              "flex cursor-pointer items-center justify-center p-3 hover:rounded-lg hover:bg-neutral-300",
+              dark && "hover:bg-neutral-800",
+            )}
           >
-            <MdDarkMode className={`${dark ? "text-white" : ""}`} />
+            <MdDarkMode className={tm("", dark && "text-white")} />
           </div>
           <a href="https://github.com/Friedrich482" target="_blank">
             <div
-              className={` flex cursor-pointer items-center justify-center p-3 hover:rounded-lg ${dark ? "hover:bg-neutral-800" : "hover:bg-neutral-300"}`}
+              className={tm(
+                "flex cursor-pointer items-center justify-center p-3 hover:rounded-lg hover:bg-neutral-300",
+                dark && "hover:bg-neutral-800",
+              )}
             >
-              <FaGithub className={`${dark ? "text-white" : ""}`} />
+              <FaGithub className={tm("", dark && "text-white")} />
             </div>
           </a>
         </div>
@@ -86,28 +104,41 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
 
       <span className="fixed top-[3.25rem] z-10 h-0" ref={ref}>
         <ul
-          className={`mr-3 w-32 flex-col rounded-lg p-1  text-base text-white ring-1 ring-stone-800 ${dropDownList ? "flex" : "invisible"} ${dark ? "bg-default-black text-white" : "bg-default-white"}`}
+          className={tm(
+            "invisible mr-3 w-32 flex-col rounded-lg  bg-default-white p-1 text-base text-white ring-1 ring-stone-800",
+            dark && "bg-default-black text-white",
+            dropDownList && "visible flex",
+          )}
         >
           <li
-            className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start ${dark ? "  hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
+            className={tm(
+              "flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start text-black hover:bg-neutral-300",
+              dark && "text-white hover:bg-neutral-800",
+            )}
             onClick={() => {
               lightHandler(dark);
             }}
           >
-            <CiLight className="" />
+            <CiLight />
             Light
           </li>
           <li
-            className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg   p-1 pl-2 text-start ${dark ? " hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
+            className={tm(
+              "flex cursor-pointer items-center justify-start gap-2 rounded-lg   p-1 pl-2 text-start text-black hover:bg-neutral-300",
+              dark && "text-white hover:bg-neutral-800",
+            )}
             onClick={() => {
               darkHandler(dark);
             }}
           >
-            <MdDarkMode className="" />
+            <MdDarkMode />
             Dark
           </li>
           <li
-            className={`flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start ${dark ? "  hover:bg-neutral-800" : "text-black hover:bg-neutral-300"} `}
+            className={tm(
+              "flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start text-black hover:bg-neutral-300",
+              dark && "text-white hover:bg-neutral-800",
+            )}
           >
             <FaDesktop />
             System

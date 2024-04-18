@@ -10,3 +10,7 @@ export type DarkModeProps = {
   dark: boolean;
   setDark: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type UseCloseMenuProps = {
+  dropDownList: boolean;
+};
