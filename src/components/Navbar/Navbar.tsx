@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { MdDarkMode, MdSell } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 import { FaGithub, FaDesktop } from "react-icons/fa";
 import type { DarkModeProps } from "../../types";
 import { twMerge as tm } from "tailwind-merge";
-
+import HorizontalNavbar from "./HorizontalNavbar";
+import VerticalNavbar from "./VerticalNavbar";
 const Navbar = ({ dark, setDark }: DarkModeProps) => {
   const [dropDownList, setDropDownList] = useState(false);
   const darkModeButtonHandler = (previousState: boolean) => {
@@ -36,49 +37,13 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
     <>
       <nav
         className={tm(
-          "fixed top-0 z-10 hidden min-h-14 w-full flex-row items-center justify-start border-b border-b-black text-xl backdrop-blur-lg backdrop-opacity-100 sm:flex",
+          "fixed top-0 z-10 flex min-h-14 w-full flex-row items-center justify-end border-b border-b-black text-xl backdrop-blur-lg backdrop-opacity-100 sm:justify-start",
           dark && "border-b-stone-600",
         )}
       >
-        {" "}
-        <div className="flex w-5/12 flex-row items-center justify-start gap-2 pl-12">
-          <MdSell className={tm("size-6 text-black", dark && "text-white")} />
-          <p className={tm("cursor-pointer text-black", dark && "text-white")}>
-            Friedrich Sell's
-          </p>
-        </div>
-        <ul
-          className={tm(
-            "flex w-5/12 items-center justify-end gap-5 text-stone-500",
-            dark && "text-stone-400",
-          )}
-        >
-          <li
-            className={tm(
-              "cursor-pointer hover:text-black",
-              dark && "hover:text-white",
-            )}
-          >
-            Houses
-          </li>
-          <li
-            className={tm(
-              "cursor-pointer hover:text-black",
-              dark && "hover:text-white",
-            )}
-          >
-            Cars
-          </li>
-          <li
-            className={tm(
-              "cursor-pointer hover:text-black",
-              dark && "hover:text-white",
-            )}
-          >
-            Motorbikes
-          </li>
-        </ul>
-        <div className="mr-8 flex w-2/12 items-center justify-end gap-0">
+        <HorizontalNavbar dark={dark} setDark={setDark} />
+        <VerticalNavbar dark={dark} setDark={setDark} />
+        <div className=" mr-8 flex items-center justify-end gap-0 sm:w-2/12">
           <div
             onClick={() => {
               darkModeButtonHandler(dropDownList);
