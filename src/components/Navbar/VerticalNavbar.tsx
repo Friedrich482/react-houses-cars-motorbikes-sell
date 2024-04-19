@@ -3,12 +3,35 @@ import { twMerge as tm } from "tailwind-merge";
 import { IoIosClose } from "react-icons/io";
 import { MdSell } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 const VerticalNavbar = ({ dark }: DarkModeProps) => {
-  const [openVerticalNavbar, setOpenVerticalNavbar] = useState(true);
+  const [openVerticalNavbar, setOpenVerticalNavbar] = useState(false);
   const handleCloseButtonClick = (previousState: boolean) => {
     setOpenVerticalNavbar(!previousState);
   };
+  const menuBurgerButtonHandler = (previousState: boolean) => {
+    setOpenVerticalNavbar(!previousState);
+  };
+  useEffect(() => {
+    openVerticalNavbar
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [openVerticalNavbar]);
+  const ref = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const handleOutSideClick = (event: Event) => {
+      if (!ref.current?.contains(event.target as Node) && openVerticalNavbar) {
+        setOpenVerticalNavbar(!openVerticalNavbar);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [ref, openVerticalNavbar]);
+
   return (
     <>
       <div className="flex w-10/12 sm:hidden">
@@ -17,6 +40,9 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
             "ml-8 cursor-pointer p-3 hover:rounded-lg hover:bg-neutral-300",
             dark && "hover:bg-neutral-800",
           )}
+          onClick={() => {
+            menuBurgerButtonHandler(openVerticalNavbar);
+          }}
         >
           <RxHamburgerMenu
             className={tm(
@@ -29,9 +55,10 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
       <span
         className={
           openVerticalNavbar
-            ? "fixed left-0 z-20 inline h-0 transform place-self-start duration-1000"
+            ? "fixed left-0 z-20 inline h-0 place-self-start transition duration-1000"
             : "hidden"
         }
+        ref={ref}
       >
         <div
           className={tm(
