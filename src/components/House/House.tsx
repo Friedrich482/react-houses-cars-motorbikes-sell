@@ -3,6 +3,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import type { HouseProps } from "../../types";
 import { toast } from "react-toastify";
+import { twMerge as tm } from "tailwind-merge";
 
 const House = ({ src, id, price, location, sold }: HouseProps) => {
   const [houseSold, setHouseSold] = useState(sold);
@@ -18,24 +19,32 @@ const House = ({ src, id, price, location, sold }: HouseProps) => {
     <>
       <div
         key={id}
-        className="flex min-h-[500px] min-w-72 max-w-80 transform flex-col items-center gap-3 rounded-lg border-8 border-amber-800 bg-indigo-950 duration-700 hover:scale-110 hover:shadow-md hover:shadow-black hover:outline hover:outline-black"
+        className={tm(
+          "flex min-h-[30rem] min-w-72 max-w-80 transform cursor-pointer flex-col items-center gap-4 rounded-lg border border-default-black bg-stone-100  duration-700 hover:scale-110",
+        )}
       >
         <img
           src={src}
           alt={`House n°${id + 1}`}
-          className="mt-8 aspect-square size-72 w-11/12 rounded-lg border-4 border-solid border-red-600"
+          className=" aspect-square h-72  w-full rounded-tl-lg rounded-tr-lg"
         />
-        <div className="flex w-5/6 items-center justify-center text-center text-xl text-white">
-          <FaMapMarkerAlt className="size-6 w-2/6 text-red-600" />
-          <p className="w-4/6 text-start text-2xl font-bold">{location}</p>
+        <div className="flex w-5/6 items-center justify-center text-center text-xl">
+          <FaMapMarkerAlt className="relative left-3 mb-1 size-6 w-2/6 text-default-black" />
+          <p className="w-4/6 text-start text-2xl font-bold text-default-black">
+            {location}
+          </p>
         </div>
-        <p className="flex w-full items-center justify-center gap-2 border-b-4 border-t-4 border-double border-yellow-300 bg-red-600 text-center  text-3xl font-bold text-white">
-          <SlBadge className="size-8 text-yellow-500" />
+        <p className="flex w-full items-center justify-center gap-2 border-b-4 border-t-4 border-double border-default-white bg-default-black text-center text-3xl font-bold text-default-white">
+          <SlBadge className="size-8 text-default-white" />
           {price} $
         </p>
         <button
           type="button"
-          className={` w-8/12 rounded-lg p-2 font-bold outline-none  ${houseSold ? "cursor-not-allowed bg-yellow-600 opacity-85" : "transform bg-yellow-600 duration-500 hover:outline-1 hover:outline-white"}`}
+          className={tm(
+            "mt-1 w-8/12 transform rounded-lg bg-default-black p-2 font-bold text-default-white outline-none duration-500 hover:outline-1 hover:outline-stone-700",
+            houseSold &&
+              "cursor-not-allowed opacity-65 hover:outline-0 hover:outline-transparent",
+          )}
           onClick={() => handleSoldButtonClick(houseSold)}
         >
           {houseSold ? "Already sold !" : "Buy now !"}
