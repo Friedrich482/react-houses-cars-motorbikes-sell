@@ -53,11 +53,10 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
         </div>
       </div>
       <span
-        className={
-          openVerticalNavbar
-            ? "fixed left-0 z-20 inline h-0 place-self-start transition duration-1000"
-            : "hidden"
-        }
+        className={tm(
+          "fixed left-0 z-20 inline h-0 place-self-start transition duration-1000",
+          !openVerticalNavbar && "-translate-x-[22rem]",
+        )}
         ref={ref}
       >
         <div
