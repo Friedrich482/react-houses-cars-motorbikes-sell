@@ -14,3 +14,5 @@ export type DarkModeProps = {
 export type UseCloseMenuProps = {
   dropDownList: boolean;
 };
+
+export type House = HouseProps & DarkModeProps;

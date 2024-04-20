@@ -1,6 +1,7 @@
 import House from "./House";
 import HousesData from "./HousesData";
-const Houses = () => {
+import type { DarkModeProps } from "../../types";
+const Houses = ({ dark, setDark }: DarkModeProps) => {
   return HousesData.map(({ src, id, price, location, sold }) => (
     <House
       src={src}
@@ -9,6 +10,8 @@ const Houses = () => {
       price={price}
       location={location}
       sold={sold}
+      dark={dark}
+      setDark={setDark}
     />
   ));
 };
