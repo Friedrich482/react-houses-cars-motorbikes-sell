@@ -2,13 +2,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Houses from "./components/House";
 import Footer from "./components/Footer";
-import Dialog from "./components/Dialog";
 import { twMerge as tm } from "tailwind-merge";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 function App() {
   const [dark, setDark] = useState(false);
-
   return (
     <>
       <div
@@ -22,7 +20,6 @@ function App() {
           <Houses dark={dark} setDark={setDark} />
         </main>
         <Footer dark={dark} setDark={setDark} />
-        <Dialog />
       </div>
       <ToastContainer />
     </>

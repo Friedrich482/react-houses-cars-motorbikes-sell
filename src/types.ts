@@ -16,3 +16,8 @@ export type UseCloseMenuProps = {
 };
 
 export type House = HouseProps & DarkModeProps;
+
+export type ModalProps = {
+  openModal: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+};
