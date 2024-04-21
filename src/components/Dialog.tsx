@@ -7,18 +7,35 @@ const Dialog = ({
   dialogRef,
   tempPrice,
   dark,
+  setOpenModal,
 }: ModalProps) => {
   useEffect(() => {
     openModal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
   }, [openModal]);
+
+  useEffect(() => {
+    const handleOutSideClick = (event: Event) => {
+      if (dialogRef.current?.contains(event.target as Node) && openModal) {
+        dialogRef.current?.close();
+        setOpenModal(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [dialogRef, openModal, setOpenModal]);
+
   return (
     <dialog
       className={tm(
         "z-50 flex min-w-64 flex-col items-center justify-center gap-4 rounded-xl bg-default-white pb-5 pl-6 pr-6 pt-8 text-black ring-1 ring-stone-800 backdrop:backdrop-brightness-[0.3] sm:w-[62%] md:w-[55%] lg:w-[45%]",
         !openModal && "hidden",
-        dark && "bg-default-black text-white",
+        dark && "border border-stone-600 bg-default-black text-white",
       )}
       ref={dialogRef}
     >

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import type { DarkModeProps } from "../../types";
 const Houses = ({ dark, setDark }: DarkModeProps) => {
   const [openModal, setOpenModal] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [tempPrice, setTempPrice] = useState<number>(0);
   const toggleModal = (price: number) => {
     if (openModal) {
