@@ -21,7 +21,7 @@ export type ModalProps = {
   toggleModal: (price: number) => void;
   dialogRef: React.RefObject<HTMLDialogElement>;
   tempPrice: number;
-};
+} & DarkModeProps;
 export type House = HouseProps &
   DarkModeProps &
   Omit<ModalProps, "dialogRef" | "setOpenModal" | "openModal" | "tempPrice">;

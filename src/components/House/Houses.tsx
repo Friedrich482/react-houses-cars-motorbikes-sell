@@ -6,14 +6,19 @@ import { toast } from "react-toastify";
 import type { DarkModeProps } from "../../types";
 const Houses = ({ dark, setDark }: DarkModeProps) => {
   const [openModal, setOpenModal] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [tempPrice, setTempPrice] = useState<number>(0);
   const toggleModal = (price: number) => {
     if (openModal) {
       setOpenModal(false);
       dialogRef.current?.close();
       toast.success(
-        `House successfully sold ! ${price}$ have been taken from your account.`,
+        <div>
+          <p>
+            House successfully sold ! <br /> {price} $ have been taken from your
+            account.
+          </p>
+        </div>,
       );
     } else {
       setTempPrice(price);
@@ -43,6 +48,8 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
         toggleModal={toggleModal}
         dialogRef={dialogRef}
         tempPrice={tempPrice}
+        dark={dark}
+        setDark={setDark}
       />
     </>
   );
