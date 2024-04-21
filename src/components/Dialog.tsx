@@ -1,24 +1,17 @@
-import { useRef, useState, useEffect } from "react";
+import { useEffect } from "react";
 import { twMerge as tm } from "tailwind-merge";
-const Dialog = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  const toggleModal = () => {
-    if (openModal) {
-      setOpenModal(false);
-      dialogRef.current?.close();
-    } else {
-      setOpenModal(true);
-      dialogRef.current?.showModal();
-    }
-  };
+import type { ModalProps } from "../types";
+const Dialog = ({
+  openModal,
+  toggleModal,
+  dialogRef,
+  tempPrice,
+}: ModalProps) => {
   useEffect(() => {
     openModal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
   }, [openModal]);
-
   return (
     <dialog
       className={tm(
@@ -40,7 +33,7 @@ const Dialog = () => {
           className="min-w-24 rounded-xl border border-white bg-white p-2 text-black"
           type="button"
           onClick={() => {
-            toggleModal();
+            toggleModal(tempPrice);
           }}
         >
           Yes
