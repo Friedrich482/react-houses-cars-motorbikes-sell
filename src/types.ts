@@ -15,4 +15,13 @@ export type UseCloseMenuProps = {
   dropDownList: boolean;
 };
 
-export type House = HouseProps & DarkModeProps;
+export type ModalProps = {
+  openModal: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleModal: (price: number) => void;
+  dialogRef: React.RefObject<HTMLDialogElement>;
+  tempPrice: number;
+};
+export type House = HouseProps &
+  DarkModeProps &
+  Omit<ModalProps, "dialogRef" | "setOpenModal" | "openModal" | "tempPrice">;

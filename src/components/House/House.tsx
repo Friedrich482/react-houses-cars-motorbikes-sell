@@ -2,17 +2,21 @@ import { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import type { House } from "../../types";
-import { toast } from "react-toastify";
 import { twMerge as tm } from "tailwind-merge";
-
-const House = ({ src, id, price, location, sold, dark }: House) => {
+const House = ({
+  src,
+  id,
+  price,
+  location,
+  sold,
+  dark,
+  toggleModal,
+}: House) => {
   const [houseSold, setHouseSold] = useState(sold);
   const handleSoldButtonClick = (prevState: boolean) => {
+    toggleModal(price);
     if (!prevState) {
       setHouseSold(!prevState);
-      toast.success(
-        `House successfully sold ! ${price} have been taken from your account`,
-      );
     }
   };
   return (
@@ -48,14 +52,9 @@ const House = ({ src, id, price, location, sold, dark }: House) => {
         <p
           className={tm(
             "flex w-full items-center justify-center gap-2 border-b-4 border-t-4 border-double border-default-white bg-default-black text-center text-3xl font-bold text-default-white",
-            dark && "",
           )}
         >
-          <SlBadge
-            className={tm(
-              "size-8 text-default-white",
-            )}
-          />
+          <SlBadge className={tm("size-8 text-default-white")} />
           {price} $
         </p>
         <button
