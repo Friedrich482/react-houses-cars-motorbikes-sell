@@ -13,7 +13,12 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
       setOpenModal(false);
       dialogRef.current?.close();
       toast.success(
-        `House successfully sold ! ${price}$ have been taken from your account.`,
+        <div>
+          <p>
+            House successfully sold ! <br /> {price} $ have been taken from your
+            account.
+          </p>
+        </div>,
       );
     } else {
       setTempPrice(price);
