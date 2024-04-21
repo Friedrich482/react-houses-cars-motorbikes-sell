@@ -43,6 +43,8 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
         toggleModal={toggleModal}
         dialogRef={dialogRef}
         tempPrice={tempPrice}
+        dark={dark}
+        setDark={setDark}
       />
     </>
   );
