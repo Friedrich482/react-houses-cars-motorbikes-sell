@@ -1,6 +1,6 @@
 # React First Application
 
-Welcome in my Home Sale App 🏠 !
+Welcome in my house, cars and motorcycles Sale App 🏠 !
 
 ## Run the application
 
