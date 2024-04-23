@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { SlBadge } from "react-icons/sl";
 import type { House } from "../../types";
@@ -11,14 +11,34 @@ const House = ({
   sold,
   dark,
   toggleModal,
+  yesButtonDialog,
+  setYesButtonDialog,
 }: House) => {
   const [houseSold, setHouseSold] = useState(sold);
-  const handleSoldButtonClick = (prevState: boolean) => {
+  const houseIdRef = useRef<number | null>(null);
+
+  const handleSoldButtonClick = () => {
+    updateHouseId(id);
     toggleModal(price);
-    if (!prevState) {
-      setHouseSold(!prevState);
-    }
   };
+
+  const updateHouseId = (newId: number) => {
+    houseIdRef.current = newId;
+  };
+
+  useEffect(() => {
+    if (yesButtonDialog && houseIdRef.current === id) {
+      setHouseSold(true);
+      setYesButtonDialog(false);
+    }
+  }, [
+    yesButtonDialog,
+    setYesButtonDialog,
+    setHouseSold,
+    houseSold,
+    houseIdRef,
+    id,
+  ]);
   return (
     <>
       <div
@@ -66,7 +86,7 @@ const House = ({
             dark &&
               "bg-default-white text-default-black hover:outline-stone-300",
           )}
-          onClick={() => handleSoldButtonClick(houseSold)}
+          onClick={() => (!houseSold ? handleSoldButtonClick() : true)}
         >
           {houseSold ? "Already sold !" : "Buy now !"}
         </button>

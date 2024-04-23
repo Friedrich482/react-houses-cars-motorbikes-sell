@@ -5,13 +5,17 @@ import Dialog from "../Dialog";
 import { toast } from "react-toastify";
 import type { DarkModeProps } from "../../types";
 const Houses = ({ dark, setDark }: DarkModeProps) => {
-  const [openModal, setOpenModal] = useState(false);
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [tempPrice, setTempPrice] = useState<number>(0);
+  const [openModal, setOpenModal] = useState(false);
+  const [yesButtonDialog, setYesButtonDialog] = useState(false);
+
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
   const toggleModal = (price: number) => {
     if (openModal) {
       setOpenModal(false);
       dialogRef.current?.close();
+
       toast.success(
         <div>
           <p>
@@ -40,6 +44,8 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
           dark={dark}
           setDark={setDark}
           toggleModal={toggleModal}
+          yesButtonDialog={yesButtonDialog}
+          setYesButtonDialog={setYesButtonDialog}
         />
       ))}
       <Dialog
@@ -50,6 +56,8 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
         tempPrice={tempPrice}
         dark={dark}
         setDark={setDark}
+        yesButtonDialog={yesButtonDialog}
+        setYesButtonDialog={setYesButtonDialog}
       />
     </>
   );
