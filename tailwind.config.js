@@ -7,6 +7,9 @@ export default {
         "default-white": " rgb(241, 241, 241)",
         "default-black": "hsl(240 10% 3.9%);",
       },
+      screens: {
+        "description-section": "960px",
+      },
     },
   },
   plugins: [],
