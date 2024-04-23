@@ -2,6 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Houses from "./components/House";
 import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
 import { twMerge as tm } from "tailwind-merge";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
@@ -16,6 +17,7 @@ function App() {
         )}
       >
         <Header dark={dark} setDark={setDark} />
+        <HeroSection />
         <main className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
           <Houses dark={dark} setDark={setDark} />
         </main>
