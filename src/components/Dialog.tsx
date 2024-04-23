@@ -8,7 +8,6 @@ const Dialog = ({
   tempPrice,
   dark,
   setOpenModal,
-  yesButtonDialog,
   setYesButtonDialog,
 }: ModalProps) => {
   useEffect(() => {
@@ -65,16 +64,9 @@ const Dialog = ({
             )}
             type="button"
             onClick={() => {
-              setYesButtonDialog(false);
-              toggleModal(tempPrice);
+              setOpenModal(false);
+              dialogRef.current?.close();
             }}
-            // onClick={() => {
-            //   setYesButtonDialog(() => {
-            //     const newState = false;
-            //     toggleModal(tempPrice);
-            //     return newState;
-            //   });
-            // }}
           >
             No
           </button>
@@ -87,13 +79,6 @@ const Dialog = ({
             onClick={() => {
               yesButtonFunction();
             }}
-            // onClick={() => {
-            //   setYesButtonDialog((previousState) => {
-            //     const newState = !previousState;
-            //     toggleModal(tempPrice);
-            //     return newState;
-            //   });
-            // }}
           >
             Yes
           </button>

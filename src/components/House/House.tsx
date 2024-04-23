@@ -15,12 +15,12 @@ const House = ({
   setYesButtonDialog,
 }: House) => {
   const [houseSold, setHouseSold] = useState(sold);
+  const houseIdRef = useRef<number | null>(null);
 
   const handleSoldButtonClick = () => {
     updateHouseId(id);
     toggleModal(price);
   };
-  const houseIdRef = useRef<number | null>(null);
 
   const updateHouseId = (newId: number) => {
     houseIdRef.current = newId;
