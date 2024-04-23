@@ -8,6 +8,8 @@ const Dialog = ({
   tempPrice,
   dark,
   setOpenModal,
+  yesButtonDialog,
+  setYesButtonDialog,
 }: ModalProps) => {
   useEffect(() => {
     openModal
@@ -17,9 +19,6 @@ const Dialog = ({
 
   useEffect(() => {
     const handleOutSideClick = (event: Event) => {
-      if (openModal) {
-        console.log(event.target);
-      }
       if (event.target === dialogRef.current && openModal) {
         setOpenModal(false);
         dialogRef.current?.close();
@@ -32,7 +31,10 @@ const Dialog = ({
       window.removeEventListener("mousedown", handleOutSideClick);
     };
   }, [dialogRef, openModal, setOpenModal]);
-
+  const yesButtonFunction = () => {
+    setYesButtonDialog(true);
+    toggleModal(tempPrice);
+  };
   return (
     <dialog
       className={tm(
@@ -62,6 +64,17 @@ const Dialog = ({
               dark && "hover:bg-zinc-900",
             )}
             type="button"
+            onClick={() => {
+              setYesButtonDialog(false);
+              toggleModal(tempPrice);
+            }}
+            // onClick={() => {
+            //   setYesButtonDialog(() => {
+            //     const newState = false;
+            //     toggleModal(tempPrice);
+            //     return newState;
+            //   });
+            // }}
           >
             No
           </button>
@@ -72,8 +85,15 @@ const Dialog = ({
             )}
             type="button"
             onClick={() => {
-              toggleModal(tempPrice);
+              yesButtonFunction();
             }}
+            // onClick={() => {
+            //   setYesButtonDialog((previousState) => {
+            //     const newState = !previousState;
+            //     toggleModal(tempPrice);
+            //     return newState;
+            //   });
+            // }}
           >
             Yes
           </button>
