@@ -32,7 +32,11 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
       window.removeEventListener("mousedown", handleOutSideClick);
     };
   }, [ref, dropDownList]);
-
+  useEffect(() => {
+    dropDownList
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [dropDownList]);
   return (
     <>
       <nav
@@ -53,7 +57,11 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
               dark && "hover:bg-neutral-800",
             )}
           >
-            <MdDarkMode className={tm("", dark && "text-white")} />
+            {dark ? (
+              <MdDarkMode className={tm("", dark && "text-white")} />
+            ) : (
+              <CiLight />
+            )}
           </div>
           <a href="https://github.com/Friedrich482" target="_blank">
             <div
@@ -71,8 +79,8 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
       <span className="fixed top-[3.25rem] z-10 h-0" ref={ref}>
         <ul
           className={tm(
-            "invisible mr-3 w-32 flex-col rounded-lg  bg-default-white p-1 text-base text-white ring-1 ring-stone-800",
-            dark && "bg-default-black text-white",
+            "invisible mr-3 w-32 flex-col rounded-lg  border border-default-black bg-default-white p-1 text-base text-white transition duration-300 ease-out",
+            dark && "border-neutral-700 bg-default-black text-white",
             dropDownList && "visible flex",
           )}
         >
