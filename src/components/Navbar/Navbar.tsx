@@ -41,7 +41,7 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
     <>
       <nav
         className={tm(
-          "fixed top-0 z-10 flex min-h-14 w-full flex-row items-center justify-end border-b border-b-black text-xl backdrop-blur-lg backdrop-opacity-100 sm:justify-start",
+          "fixed top-0 z-20 flex min-h-14 w-full flex-row items-center justify-end border-b border-b-black text-xl backdrop-blur-lg backdrop-opacity-100 sm:justify-start",
           dark && "border-b-stone-600",
         )}
       >
@@ -76,7 +76,7 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
         </div>
       </nav>
 
-      <span className="fixed top-[3.25rem] z-10 h-0" ref={ref}>
+      <span className="fixed top-[3.25rem] z-30 h-0" ref={ref}>
         <ul
           className={tm(
             "invisible mr-3 w-32 flex-col rounded-lg  border border-default-black bg-default-white p-1 text-base text-white transition duration-300 ease-out",
