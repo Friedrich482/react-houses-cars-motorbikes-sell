@@ -28,3 +28,5 @@ export type ModalProps = {
 export type House = HouseProps &
   DarkModeProps &
   Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
+
+export type CardProps = { name: string; src: string };

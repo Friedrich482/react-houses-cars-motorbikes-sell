@@ -6,7 +6,7 @@ import { twMerge as tm } from "tailwind-merge";
 const Description = ({ dark }: DarkModeProps) => {
   return (
     <section className="mb-24 ml-16 mr-12 flex max-w-[800px] flex-col items-center justify-center gap-4 self-center description-section:flex-row description-section:gap-20">
-      <div className="flex-col items-center justify-center gap-3 description-section:w-3/5">
+      <div className="flex flex-col items-center justify-center gap-3 description-section:w-3/5">
         <div className="flex w-full flex-col items-center justify-center  description-section:gap-3">
           <h2
             className={tm(
@@ -27,7 +27,7 @@ const Description = ({ dark }: DarkModeProps) => {
         </div>
         <p
           className={tm(
-            "text-xl first-letter:text-3xl first-letter:font-bold",
+            "flex w-10/12 items-center justify-center text-start text-xl tracking-tight first-letter:text-3xl first-letter:font-bold description-section:w-full",
             dark && "text-neutral-300",
           )}
         >
