@@ -1,27 +1,32 @@
-import House from "../../assets/imgs/cards/house.webp";
-import Bike from "../../assets/imgs/cards/bike.webp";
+import HouseLight from "../../assets/imgs/cards/houseLight.webp";
+import HouseDark from "../../assets/imgs/cards/houseDark.jpg";
+import Bike from "../../assets/imgs/cards/bikeDark.png";
 import Car from "../../assets/imgs/cards/car.jpg";
 import Card from "./Card";
+import type { DarkModeProps } from "../../types";
 import type { CardProps } from "../../types";
-const Cards = () => {
+const Cards = ({ dark }: DarkModeProps) => {
   const cardsElements = [
     {
       name: "House",
-      src: House,
+      src: dark ? HouseDark : HouseLight,
+      dark: dark,
     },
     {
       name: "Car",
       src: Car,
+      dark: dark,
     },
     {
       name: "Bike",
       src: Bike,
+      dark: dark,
     },
   ];
   return (
-    <section className=" flex w-10/12 flex-col items-center justify-center gap-6 self-center description-section:flex-row">
-      {cardsElements.map(({ src, name }: CardProps) => (
-        <Card src={src} name={name} />
+    <section className="mb-24 mt-24 flex w-10/12 flex-wrap items-center justify-center gap-6 self-center">
+      {cardsElements.map(({ src, name, dark }: CardProps) => (
+        <Card src={src} name={name} dark={dark} />
       ))}
     </section>
   );
