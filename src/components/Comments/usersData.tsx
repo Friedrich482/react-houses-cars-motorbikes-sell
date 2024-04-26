@@ -16,7 +16,7 @@ const usersData = [
     image: "https://randomuser.me/api/portraits/women/91.jpg",
     title: "Senior Cost Accountant",
     comment:
-      "As a car enthusiast, I've used countless apps to browse through vehicle listings, but none have impressed me as much as this one. The attention to detail in the descriptions and the stunning photos really set it apart",
+      "As a car enthusiast, I've used countless apps to browse through vehicle listings, but none have impressed me as much as this one. The attention to detail in the descriptions and the stunning photos really set it apart.",
   },
 
   {
@@ -110,7 +110,7 @@ const usersData = [
 
     title: "Community Outreach Specialist",
     comment:
-      "My experience with this app has been nothing short of fantastic. The customer support team was responsive and helpful, and the seamless integration of features made browsing for motorcycles a pleasure",
+      "My experience with this app has been nothing short of fantastic. The customer support team was responsive and helpful, and the seamless integration of features made browsing for motorcycles a pleasure.",
   },
 
   {

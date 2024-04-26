@@ -1,10 +1,11 @@
 import usersData from "./usersData";
 import type { User } from "../../types";
-import CommentCard from "./Commentcard";
+import CommentCard from "./CommentCard";
 const CommentsCards = () => {
   return (
-    <section>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="flex w-11/12 flex-col items-center justify-center gap-8 self-center">
+      <h2 className="text-4xl font-bold text-neutral-700">Our Users Opinion</h2>
+      <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {usersData.map(
           ({ id, firstName, lastName, image, comment, title }: User) => (
             <CommentCard
