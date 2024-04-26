@@ -29,7 +29,16 @@ export type House = HouseProps &
   DarkModeProps &
   Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
 
-export type CardProps = {
+export type ArticleCardProps = {
   name: string;
   src: string;
 } & Omit<DarkModeProps, "setDark">;
+
+export type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  title: string;
+  image: string;
+  comment: string;
+};
