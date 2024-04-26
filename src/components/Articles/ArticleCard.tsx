@@ -5,7 +5,7 @@ const ArticleCard = ({ name, src, dark }: ArticleCardProps) => {
     <div
       className={tm(
         "group flex h-[350px] min-w-40 max-w-80 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border border-black transition duration-500 ease-in-out hover:scale-110 hover:shadow-lg hover:shadow-black very-small:flex-shrink-0",
-        dark && "border-default-white",
+        dark && "border-default-white hover:shadow-neutral-800",
       )}
     >
       <img
