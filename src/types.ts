@@ -42,3 +42,5 @@ export type User = {
   image: string;
   comment: string;
 };
+
+export type UserDark = User & Omit<DarkModeProps, "setDark">;

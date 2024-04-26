@@ -1,13 +1,31 @@
 import usersData from "./usersData";
-import type { User } from "../../types";
+import type { User, DarkModeProps } from "../../types";
 import CommentCard from "./CommentCard";
-const CommentsCards = () => {
+import { twMerge as tm } from "tailwind-merge";
+
+const CommentsCards = ({ dark }: DarkModeProps) => {
+  const mappedData = usersData.map((user: User) => ({ ...user, dark }));
   return (
     <section className="flex w-11/12 flex-col items-center justify-center gap-8 self-center">
-      <h2 className="text-4xl font-bold text-neutral-700">Our Users Opinion</h2>
+      <h2
+        className={tm(
+          "text-4xl font-bold text-neutral-700",
+          dark && "text-white",
+        )}
+      >
+        Our Users Opinion
+      </h2>
       <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {usersData.map(
-          ({ id, firstName, lastName, image, comment, title }: User) => (
+        {mappedData.map(
+          ({
+            id,
+            firstName,
+            lastName,
+            image,
+            comment,
+            title,
+            dark,
+          }: User & Omit<DarkModeProps, "setDark">) => (
             <CommentCard
               id={id}
               firstName={firstName}
@@ -16,6 +34,7 @@ const CommentsCards = () => {
               comment={comment}
               title={title}
               key={id}
+              dark={dark}
             />
           ),
         )}
