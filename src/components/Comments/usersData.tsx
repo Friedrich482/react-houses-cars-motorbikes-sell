@@ -110,7 +110,7 @@ const usersData = [
 
     title: "Community Outreach Specialist",
     comment:
-      "My experience with this app has been nothing short of fantastic. The customer support team was responsive and helpful, and the seamless integration of features made browsing for motorcycles a pleasure.",
+      "My experience with this app has been nothing short of fantastic. The customer support team was responsive and helpful, and the seamless integration of features made browsing for motorcycles a pleasure",
   },
 
   {

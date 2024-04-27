@@ -1,8 +1,12 @@
 import type { DarkModeProps } from "../types";
+import { twMerge as tm } from "tailwind-merge";
 const Footer = ({ dark }: DarkModeProps) => {
   return (
     <footer
-      className={`flex flex-col items-center justify-center text-center text-2xl ${dark ? " bg-default-black text-white" : " bg-default-white text-black"}`}
+      className={tm(
+        "mb-0 flex flex-col items-center justify-center text-center text-2xl text-black",
+        dark && "text-white",
+      )}
     >
       <p className="mb-2 text-base">
         Built by{" "}
