@@ -1,16 +1,19 @@
 import { twMerge as tm } from "tailwind-merge";
 import type { DarkModeProps } from "../../types";
 import { MdSell } from "react-icons/md";
-
+import { Link } from "react-router-dom";
 const HorizontalNavbar = ({ dark }: DarkModeProps) => {
   return (
     <div className="hidden w-10/12 sm:flex">
-      <div className="flex w-6/12 flex-row items-center justify-start gap-2 pl-12">
+      <Link
+        to={"/"}
+        className="flex w-6/12 flex-row items-center justify-start gap-2 pl-12"
+      >
         <MdSell className={tm("size-6 text-black", dark && "text-white")} />
         <p className={tm("cursor-pointer text-black", dark && "text-white")}>
           Friedrich Sell's
         </p>
-      </div>
+      </Link>
       <ul
         className={tm(
           "flex w-6/12 items-center justify-end gap-5 text-stone-500",
@@ -23,7 +26,7 @@ const HorizontalNavbar = ({ dark }: DarkModeProps) => {
             dark && "hover:text-white",
           )}
         >
-          Houses
+          <Link to="/houses">Houses</Link>
         </li>
         <li
           className={tm(

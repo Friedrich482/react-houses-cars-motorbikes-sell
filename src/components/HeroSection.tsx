@@ -20,14 +20,16 @@ const HeroSection = ({ dark }: DarkModeProps) => {
         Awesome website to buy your cars, homes and bikes and best prices and
         with only few clicks!
       </p>
-      <button
-        className={tm(
-          "mt-5 rounded-lg bg-black p-3 pl-8 pr-8 text-xl text-default-white",
-          dark && "bg-default-white text-default-black",
-        )}
-      >
-        Discover us
-      </button>
+      <a href="#heroSection">
+        <button
+          className={tm(
+            "mt-5 rounded-lg bg-black p-3 pl-8 pr-8 text-xl text-default-white",
+            dark && "bg-default-white text-default-black",
+          )}
+        >
+          Discover us
+        </button>
+      </a>
     </section>
   );
 };
