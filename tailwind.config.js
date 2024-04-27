@@ -10,6 +10,7 @@ export default {
       screens: {
         "description-section": "960px",
         "very-small": "350px",
+        "house-break": "400px",
       },
     },
   },
