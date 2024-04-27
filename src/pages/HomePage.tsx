@@ -1,4 +1,3 @@
-import { twMerge as tm } from "tailwind-merge";
 import type { DarkModeProps } from "../types";
 import HeroSection from "../components/HeroSection";
 import Description from "../components/Description";
@@ -11,9 +10,6 @@ const HomePage = ({ dark, setDark }: DarkModeProps) => {
       <Description dark={dark} setDark={setDark} />
       <ArticleCards dark={dark} setDark={setDark} />
       <CommentsCards dark={dark} setDark={setDark} />
-      {/* <main className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
-        <Houses dark={dark} setDark={setDark} />
-      </main> */}
     </>
   );
 };

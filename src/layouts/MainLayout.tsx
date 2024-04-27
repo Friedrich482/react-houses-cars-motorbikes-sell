@@ -17,7 +17,6 @@ const MainLayout = ({ dark, setDark }: DarkModeProps) => {
       <Header dark={dark} setDark={setDark} />
       <Outlet />
       <Footer dark={dark} setDark={setDark} />
-
       <ToastContainer />
     </div>
   );
