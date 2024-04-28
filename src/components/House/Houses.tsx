@@ -3,8 +3,8 @@ import House from "./House";
 import HousesData from "./HousesData";
 import Dialog from "../Dialog";
 import { toast } from "react-toastify";
-import type { DarkModeProps } from "../../types";
-const Houses = ({ dark, setDark }: DarkModeProps) => {
+import type { HousesListProps } from "../../types";
+const Houses = ({ dark, priceSearch }: HousesListProps) => {
   const [tempPrice, setTempPrice] = useState<number>(0);
   const [openModal, setOpenModal] = useState(false);
   const [yesButtonDialog, setYesButtonDialog] = useState(false);
@@ -33,21 +33,37 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
 
   return (
     <>
-      {HousesData.map(({ src, id, price, location, sold }) => (
-        <House
-          src={src}
-          id={id}
-          key={id}
-          price={price}
-          location={location}
-          sold={sold}
-          dark={dark}
-          setDark={setDark}
-          toggleModal={toggleModal}
-          yesButtonDialog={yesButtonDialog}
-          setYesButtonDialog={setYesButtonDialog}
-        />
-      ))}
+      {priceSearch === 0
+        ? HousesData.map(({ src, id, price, location, sold }) => (
+            <House
+              src={src}
+              id={id}
+              key={id}
+              price={price}
+              location={location}
+              sold={sold}
+              dark={dark}
+              toggleModal={toggleModal}
+              yesButtonDialog={yesButtonDialog}
+              setYesButtonDialog={setYesButtonDialog}
+            />
+          ))
+        : HousesData.filter(({ price }) => priceSearch === price).map(
+            ({ src, id, price, location, sold }) => (
+              <House
+                src={src}
+                id={id}
+                key={id}
+                price={price}
+                location={location}
+                sold={sold}
+                dark={dark}
+                toggleModal={toggleModal}
+                yesButtonDialog={yesButtonDialog}
+                setYesButtonDialog={setYesButtonDialog}
+              />
+            ),
+          )}
       <Dialog
         openModal={openModal}
         setOpenModal={setOpenModal}
@@ -55,7 +71,6 @@ const Houses = ({ dark, setDark }: DarkModeProps) => {
         dialogRef={dialogRef}
         tempPrice={tempPrice}
         dark={dark}
-        setDark={setDark}
         yesButtonDialog={yesButtonDialog}
         setYesButtonDialog={setYesButtonDialog}
       />

@@ -2,7 +2,9 @@ import Houses from "../components/House";
 import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
 import SearchBar from "../components/SearchBar";
-const HousesPage = ({ dark, setDark }: DarkModeProps) => {
+import { useState } from "react";
+const HousesPage = ({ dark }: DarkModeProps) => {
+  const [priceSearch, setPriceSearch] = useState(0);
   return (
     <>
       <section className="flex items-center justify-center gap-3 max-house-break:flex-col">
@@ -14,10 +16,14 @@ const HousesPage = ({ dark, setDark }: DarkModeProps) => {
         >
           Houses
         </h2>
-        <SearchBar />
+        <SearchBar
+          dark={dark}
+          priceSearch={priceSearch}
+          setPriceSearch={setPriceSearch}
+        />
       </section>
       <main className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
-        <Houses dark={dark} setDark={setDark} />
+        <Houses dark={dark} priceSearch={priceSearch} />
       </main>
     </>
   );

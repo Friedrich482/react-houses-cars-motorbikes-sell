@@ -23,12 +23,14 @@ export type ModalProps = {
   tempPrice: number;
   yesButtonDialog: boolean;
   setYesButtonDialog: React.Dispatch<React.SetStateAction<boolean>>;
-} & DarkModeProps;
+} & Omit<DarkModeProps, "setDark">;
 
 export type House = HouseProps &
-  DarkModeProps &
+  Omit<DarkModeProps, "setDark"> &
   Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
 
+export type HousesListProps = Omit<DarkModeProps, "setDark"> &
+  Omit<SearchPrice, "setPriceSearch">;
 export type ArticleCardProps = {
   name: string;
   src: string;
@@ -44,3 +46,8 @@ export type User = {
 };
 
 export type UserDark = User & Omit<DarkModeProps, "setDark">;
+
+export type SearchPrice = {
+  priceSearch: number;
+  setPriceSearch: React.Dispatch<React.SetStateAction<number>>;
+} & Omit<DarkModeProps, "setDark">;
