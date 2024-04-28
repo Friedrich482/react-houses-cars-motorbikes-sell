@@ -1,7 +1,7 @@
 import Houses from "../components/House";
 import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
-import SearchBar from "../components/SearchBar";
+import SearchDropDownMenu from "../components/Search/";
 import { useState } from "react";
 const HousesPage = ({ dark }: DarkModeProps) => {
   const [priceSearch, setPriceSearch] = useState(0);
@@ -16,7 +16,7 @@ const HousesPage = ({ dark }: DarkModeProps) => {
         >
           Houses
         </h2>
-        <SearchBar
+        <SearchDropDownMenu
           dark={dark}
           priceSearch={priceSearch}
           setPriceSearch={setPriceSearch}
