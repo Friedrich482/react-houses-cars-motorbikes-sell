@@ -14,7 +14,7 @@ export type DarkModeProps = {
 export type UseCloseMenuProps = {
   dropDownList: boolean;
 };
-
+type dark = Omit<DarkModeProps, "setDark">;
 export type ModalProps = {
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,18 +23,17 @@ export type ModalProps = {
   tempPrice: number;
   yesButtonDialog: boolean;
   setYesButtonDialog: React.Dispatch<React.SetStateAction<boolean>>;
-} & Omit<DarkModeProps, "setDark">;
+} & dark;
 
 export type House = HouseProps &
-  Omit<DarkModeProps, "setDark"> &
+  dark &
   Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
 
-export type HousesListProps = Omit<DarkModeProps, "setDark"> &
-  Omit<SearchPrice, "setPriceSearch">;
+export type HousesListProps = dark & Omit<SearchPrice, "setPriceSearch">;
 export type ArticleCardProps = {
   name: string;
   src: string;
-} & Omit<DarkModeProps, "setDark">;
+} & dark;
 
 export type User = {
   id: number;
@@ -45,9 +44,22 @@ export type User = {
   comment: string;
 };
 
-export type UserDark = User & Omit<DarkModeProps, "setDark">;
+export type UserDark = User & dark;
 
 export type SearchPrice = {
   priceSearch: number;
   setPriceSearch: React.Dispatch<React.SetStateAction<number>>;
-} & Omit<DarkModeProps, "setDark">;
+} & dark;
+
+export type DefaultSearchBarProps = dark &
+  Omit<DropDownMenuFilter, "setSearchParameter"> &
+  DropDownMenuFilterVisibility;
+
+export type DropDownMenuFilter = {
+  searchParameter: string;
+  setSearchParameter: React.Dispatch<React.SetStateAction<string>>;
+};
+export type DropDownMenuFilterVisibility = {
+  dropDownMenuVisibility: boolean;
+  setDropDownMenuVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+};

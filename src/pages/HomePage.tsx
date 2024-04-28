@@ -5,12 +5,12 @@ import ArticleCards from "../components/Articles";
 import CommentsCards from "../components/Comments/CommentsCards";
 const HomePage = ({ dark, setDark }: DarkModeProps) => {
   return (
-    <>
+    <main className="flex flex-col">
       <HeroSection dark={dark} setDark={setDark} />
       <Description dark={dark} setDark={setDark} />
       <ArticleCards dark={dark} setDark={setDark} />
       <CommentsCards dark={dark} setDark={setDark} />
-    </>
+    </main>
   );
 };
 export default HomePage;
