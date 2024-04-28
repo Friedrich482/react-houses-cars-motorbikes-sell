@@ -5,12 +5,15 @@ import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
 const Description = ({ dark }: DarkModeProps) => {
   return (
-    <section className="mb-24 ml-16 mr-12 flex max-w-[800px] flex-col items-center justify-center gap-4 self-center description-section:flex-row description-section:gap-20">
+    <section
+      className=" mb-24 ml-16 mr-12 flex max-w-[800px] flex-col items-center justify-center gap-4 self-center pt-16 description-section:flex-row description-section:gap-20"
+      id="heroSection"
+    >
       <div className="flex flex-col items-center justify-center gap-3 description-section:w-3/5">
         <div className="flex w-full flex-col items-center justify-center  description-section:gap-3">
           <h2
             className={tm(
-              "text-4xl font-bold text-neutral-700",
+              "text-center  text-4xl font-bold text-neutral-700",
               dark && "text-default-white",
             )}
           >

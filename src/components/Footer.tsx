@@ -4,7 +4,7 @@ const Footer = ({ dark }: DarkModeProps) => {
   return (
     <footer
       className={tm(
-        "mb-0 flex flex-col items-center justify-center text-center text-2xl text-black",
+        "relative top-9 mb-0 flex flex-col items-center justify-center text-center text-2xl text-black",
         dark && "text-white",
       )}
     >

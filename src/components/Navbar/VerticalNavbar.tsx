@@ -4,6 +4,7 @@ import { IoIosClose } from "react-icons/io";
 import { MdSell } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 const VerticalNavbar = ({ dark }: DarkModeProps) => {
   const [openVerticalNavbar, setOpenVerticalNavbar] = useState(false);
   const handleCloseButtonClick = (previousState: boolean) => {
@@ -66,19 +67,21 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
           )}
         >
           <div className="justify- flex w-full items-center justify-between pr-2">
-            <div className="ml-8 flex flex-row items-center justify-center gap-2">
-              <MdSell
-                className={tm("size-6 text-black", dark && "text-white")}
-              />
-              <p
-                className={tm(
-                  "cursor-pointer text-black",
-                  dark && "text-white",
-                )}
-              >
-                Friedrich Sell's
-              </p>
-            </div>
+            <Link to={"/"}>
+              <div className="ml-8 flex flex-row items-center justify-center gap-2">
+                <MdSell
+                  className={tm("size-6 text-black", dark && "text-white")}
+                />
+                <p
+                  className={tm(
+                    "cursor-pointer text-black",
+                    dark && "text-white",
+                  )}
+                >
+                  Friedrich Sell's
+                </p>
+              </div>
+            </Link>
             <IoIosClose
               className={tm(
                 "hover: mr-3 size-6 cursor-pointer rounded-md border-2 border-stone-500 text-stone-950 hover:border-default-black hover:text-default-black",
@@ -98,7 +101,7 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
                 dark && "text-default-white",
               )}
             >
-              Houses
+              <Link to={"/houses"}>Houses</Link>
             </li>
             <li
               className={tm(
