@@ -6,7 +6,7 @@ import { useState } from "react";
 const HousesPage = ({ dark }: DarkModeProps) => {
   const [priceSearch, setPriceSearch] = useState(0);
   return (
-    <>
+    <main className="flex min-h-[100vh] flex-col gap-12">
       <section className="flex items-center justify-center gap-3 max-house-break:flex-col">
         <h2
           className={tm(
@@ -22,10 +22,10 @@ const HousesPage = ({ dark }: DarkModeProps) => {
           setPriceSearch={setPriceSearch}
         />
       </section>
-      <main className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
+      <section className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
         <Houses dark={dark} priceSearch={priceSearch} />
-      </main>
-    </>
+      </section>
+    </main>
   );
 };
 export default HousesPage;
