@@ -3,18 +3,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { DefaultSearchBarProps } from "../../types";
 // import { useEffect } from "react";
 
-const DefaultSearchBar = ({
-  dark,
-  searchParameter,
-  dropDownMenuVisibility,
-  setDropDownMenuVisibility,
-}: DefaultSearchBarProps) => {
-  //   useEffect(() => {
-  //     console.log(dropDownMenuVisibility);
-  //   }, [dropDownMenuVisibility]);
-  const handleDefaultSearchBarClick = (previousState: boolean) => {
-    setDropDownMenuVisibility(!previousState);
-  };
+const DefaultSearchBar = ({ dark, searchParameter }: DefaultSearchBarProps) => {
   return (
     <button
       className={tm(
@@ -22,11 +11,8 @@ const DefaultSearchBar = ({
         dark && "text-white",
         searchParameter && "w-9/12",
       )}
-      onClick={() => {
-        handleDefaultSearchBarClick(dropDownMenuVisibility);
-      }}
     >
-      <div className="">Select ...</div>
+      <div className="">Search ...</div>
       <div className="flex h-5 flex-col items-start justify-center">
         <MdKeyboardArrowUp className="size-3" />
         <MdKeyboardArrowDown className="size-3" />

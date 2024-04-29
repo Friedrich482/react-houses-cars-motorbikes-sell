@@ -5,7 +5,12 @@ import Dialog from "../Dialog";
 import { toast } from "react-toastify";
 import type { HousesListProps } from "../../types";
 import { twMerge as tm } from "tailwind-merge";
-const Houses = ({ dark, priceSearch }: HousesListProps) => {
+const Houses = ({
+  dark,
+  priceSearch,
+  citySearch,
+  searchParameter,
+}: HousesListProps) => {
   const [tempPrice, setTempPrice] = useState<number>(0);
   const [openModal, setOpenModal] = useState(false);
   const [yesButtonDialog, setYesButtonDialog] = useState(false);
@@ -45,7 +50,7 @@ const Houses = ({ dark, priceSearch }: HousesListProps) => {
       setYesButtonDialog={setYesButtonDialog}
     />
   ));
-  const filteredHouses = HousesData.filter(
+  const filteredPerPriceHouses = HousesData.filter(
     ({ price }) => priceSearch === price,
   ).map(({ src, id, price, location, sold }) => (
     <House
@@ -61,22 +66,54 @@ const Houses = ({ dark, priceSearch }: HousesListProps) => {
       setYesButtonDialog={setYesButtonDialog}
     />
   ));
-
+  const filteredPerCityHouses = HousesData.filter(
+    ({ location }) => citySearch === location,
+  ).map(({ src, id, price, location, sold }) => (
+    <House
+      src={src}
+      id={id}
+      key={id}
+      price={price}
+      location={location}
+      sold={sold}
+      dark={dark}
+      toggleModal={toggleModal}
+      yesButtonDialog={yesButtonDialog}
+      setYesButtonDialog={setYesButtonDialog}
+    />
+  ));
   return (
     <>
-      {priceSearch === 0 ? (
+      {searchParameter === "none" ? (
         houses
-      ) : filteredHouses.length === 0 ? (
+      ) : searchParameter === "price" ? (
+        priceSearch === 0 ? (
+          houses
+        ) : filteredPerPriceHouses.length === 0 ? (
+          <p
+            className={tm(
+              "flex h-72 items-center justify-center text-center text-3xl",
+              dark && "text-white",
+            )}
+          >
+            No houses found at {priceSearch} $
+          </p>
+        ) : (
+          filteredPerPriceHouses
+        )
+      ) : citySearch === "" ? (
+        houses
+      ) : filteredPerCityHouses.length === 0 ? (
         <p
           className={tm(
             "flex h-72 items-center justify-center text-center text-3xl",
             dark && "text-white",
           )}
         >
-          No houses found at {priceSearch} $
+          No houses found at {citySearch}
         </p>
       ) : (
-        filteredHouses
+        filteredPerCityHouses
       )}
       <Dialog
         openModal={openModal}
