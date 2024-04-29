@@ -1,5 +1,5 @@
-import { useState } from "react";
 import SearchPriceBar from "./SearchPriceBar";
+import SearchCityBar from "./SearchCityBar";
 import DefaultSearchBar from "./DefaultSearchBar";
 import DropDownMenu from "./DropDownMenu";
 import { twMerge as tm } from "tailwind-merge";
@@ -10,8 +10,11 @@ const SearchDropDownMenu = ({
   setPriceSearch,
   dropDownMenuVisibility,
   setDropDownMenuVisibility,
+  citySearch,
+  setCitySearch,
+  searchParameter,
+  setSearchParameter,
 }: SearchDropDownMenuProps) => {
-  const [searchParameter, setSearchParameter] = useState("none");
   const handleSearchDropDownMenuClick = (previousState: boolean) => {
     setDropDownMenuVisibility(!previousState);
   };
@@ -35,15 +38,21 @@ const SearchDropDownMenu = ({
         >
           {searchParameter === "none" ? (
             <DefaultSearchBar dark={dark} searchParameter={searchParameter} />
-          ) : (
+          ) : searchParameter === "price" ? (
             <SearchPriceBar
               dark={dark}
               priceSearch={priceSearch}
               setPriceSearch={setPriceSearch}
             />
+          ) : (
+            <SearchCityBar
+              dark={dark}
+              citySearch={citySearch}
+              setCitySearch={setCitySearch}
+            />
           )}
         </div>
-        {dropDownMenuVisibility ? (
+        {dropDownMenuVisibility && searchParameter === "none" ? (
           <DropDownMenu
             searchParameter={searchParameter}
             setSearchParameter={setSearchParameter}

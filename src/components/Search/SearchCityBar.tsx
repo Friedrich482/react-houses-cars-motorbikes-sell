@@ -1,11 +1,11 @@
 import { CiSearch } from "react-icons/ci";
-import { SearchPrice } from "../../types";
+import type { SearchCity } from "../../types";
 import { twMerge as tm } from "tailwind-merge";
-const SearchPriceBar = ({ dark, priceSearch, setPriceSearch }: SearchPrice) => {
-  const searchPriceInputHandler = (
+const SearchCityBar = ({ citySearch, setCitySearch, dark }: SearchCity) => {
+  const searchCityInputHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setPriceSearch(Number(event.target.value));
+    setCitySearch(event.target.value);
   };
   return (
     <>
@@ -16,19 +16,18 @@ const SearchPriceBar = ({ dark, priceSearch, setPriceSearch }: SearchPrice) => {
         )}
       />
       <input
-        type="number"
-        value={priceSearch === 0 ? "" : Number(priceSearch).toString()}
+        type="text"
+        value={citySearch}
         onChange={(event) => {
-          searchPriceInputHandler(event);
+          searchCityInputHandler(event);
         }}
         className={tm(
           "h-full w-10/12 flex-shrink-0 rounded-lg bg-default-white indent-1 outline-none",
           dark && "bg-default-black text-white",
         )}
-        min={0}
-        placeholder="Enter price..."
+        placeholder="Enter city..."
       />
     </>
   );
 };
-export default SearchPriceBar;
+export default SearchCityBar;
