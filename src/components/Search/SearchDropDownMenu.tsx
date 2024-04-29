@@ -21,17 +21,17 @@ const SearchDropDownMenu = ({
         className={tm(
           "group flex h-7 w-7/12 items-center justify-center house-break:w-5/12",
           dark && "",
-          searchParameter === "none" && "cursor-pointer flex-col",
+          searchParameter === "none" && "flex-col",
         )}
-        onClick={() => {
-          handleSearchDropDownMenuClick(dropDownMenuVisibility);
-        }}
       >
         <div
           className={tm(
-            "group flex h-full w-full min-w-40 items-center justify-center rounded-lg border border-neutral-600 bg-default-white house-break:w-6/12",
+            "group flex h-full w-full min-w-40 cursor-pointer items-center justify-center rounded-lg border border-neutral-600 bg-default-white house-break:w-6/12",
             dark && "bg-default-black",
           )}
+          onClick={() => {
+            handleSearchDropDownMenuClick(dropDownMenuVisibility);
+          }}
         >
           {searchParameter === "none" ? (
             <DefaultSearchBar dark={dark} searchParameter={searchParameter} />
@@ -47,6 +47,7 @@ const SearchDropDownMenu = ({
           <DropDownMenu
             searchParameter={searchParameter}
             setSearchParameter={setSearchParameter}
+            dark={dark}
           />
         ) : null}
       </div>

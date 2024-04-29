@@ -58,7 +58,7 @@ export type DefaultSearchBarProps = dark &
 export type DropDownMenuFilter = {
   searchParameter: string;
   setSearchParameter: React.Dispatch<React.SetStateAction<string>>;
-};
+} & dark;
 export type DropDownMenuFilterVisibility = {
   dropDownMenuVisibility: boolean;
   setDropDownMenuVisibility: React.Dispatch<React.SetStateAction<boolean>>;
