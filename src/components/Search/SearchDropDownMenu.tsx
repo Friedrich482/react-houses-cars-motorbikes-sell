@@ -3,22 +3,29 @@ import SearchPriceBar from "./SearchPriceBar";
 import DefaultSearchBar from "./DefaultSearchBar";
 import DropDownMenu from "./DropDownMenu";
 import { twMerge as tm } from "tailwind-merge";
-import type { SearchPrice } from "../../types";
+import type { SearchDropDownMenuProps } from "../../types";
 const SearchDropDownMenu = ({
   dark,
   priceSearch,
   setPriceSearch,
-}: SearchPrice) => {
+  dropDownMenuVisibility,
+  setDropDownMenuVisibility,
+}: SearchDropDownMenuProps) => {
   const [searchParameter, setSearchParameter] = useState("none");
-  const [dropDownMenuVisibility, setDropDownMenuVisibility] = useState(false);
+  const handleSearchDropDownMenuClick = (previousState: boolean) => {
+    setDropDownMenuVisibility(!previousState);
+  };
   return (
     <>
       <div
         className={tm(
           "group flex h-7 w-7/12 items-center justify-center house-break:w-5/12",
           dark && "",
-          searchParameter === "none" && "cursor-pointer",
+          searchParameter === "none" && "cursor-pointer flex-col",
         )}
+        onClick={() => {
+          handleSearchDropDownMenuClick(dropDownMenuVisibility);
+        }}
       >
         <div
           className={tm(
@@ -27,12 +34,7 @@ const SearchDropDownMenu = ({
           )}
         >
           {searchParameter === "none" ? (
-            <DefaultSearchBar
-              dark={dark}
-              searchParameter={searchParameter}
-              dropDownMenuVisibility={dropDownMenuVisibility}
-              setDropDownMenuVisibility={setDropDownMenuVisibility}
-            />
+            <DefaultSearchBar dark={dark} searchParameter={searchParameter} />
           ) : (
             <SearchPriceBar
               dark={dark}
@@ -41,14 +43,13 @@ const SearchDropDownMenu = ({
             />
           )}
         </div>
+        {dropDownMenuVisibility ? (
+          <DropDownMenu
+            searchParameter={searchParameter}
+            setSearchParameter={setSearchParameter}
+          />
+        ) : null}
       </div>
-
-      {dropDownMenuVisibility ? (
-        <DropDownMenu
-          searchParameter={searchParameter}
-          setSearchParameter={setSearchParameter}
-        />
-      ) : null}
     </>
   );
 };

@@ -50,10 +50,10 @@ export type SearchPrice = {
   priceSearch: number;
   setPriceSearch: React.Dispatch<React.SetStateAction<number>>;
 } & dark;
-
-export type DefaultSearchBarProps = dark &
-  Omit<DropDownMenuFilter, "setSearchParameter"> &
+export type SearchDropDownMenuProps = SearchPrice &
   DropDownMenuFilterVisibility;
+export type DefaultSearchBarProps = dark &
+  Omit<DropDownMenuFilter, "setSearchParameter">;
 
 export type DropDownMenuFilter = {
   searchParameter: string;
