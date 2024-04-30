@@ -24,14 +24,6 @@ const SearchDropDownMenu = ({
     setSearchParameter("none");
   };
 
-  // useEffect(() => {
-  //   console.log("the search parameter", searchParameter);
-  // }, [searchParameter]);
-
-  // useEffect(() => {
-  //   console.log("The visibility :", dropDownMenuVisibility);
-  // }, [dropDownMenuVisibility]);
-
   useEffect(() => {
     dropDownMenuVisibility
       ? (document.body.style.overflow = "hidden")
