@@ -1,21 +1,49 @@
 import { twMerge as tm } from "tailwind-merge";
-import { DropDownMenuFilter } from "../../types";
-// import { useEffect } from "react";
+import { DropDownMenuFilter, DropDownMenuFilterVisibility } from "../../types";
+import { useEffect, useRef } from "react";
 
-const DropDownMenu = ({ setSearchParameter, dark }: DropDownMenuFilter) => {
+const DropDownMenu = ({
+  searchParameter,
+  setSearchParameter,
+  dark,
+  dropDownMenuVisibility,
+  setDropDownMenuVisibility,
+}: DropDownMenuFilter & DropDownMenuFilterVisibility) => {
   const handlePerPriceSearchOptionClick = () => {
     setSearchParameter("price");
+    setDropDownMenuVisibility(false);
   };
+
   const handlePerCitySearchOptionClick = () => {
     setSearchParameter("city");
+    setDropDownMenuVisibility(false);
   };
 
-  // useEffect(() => {
-  //   console.log(searchParameter);
-  // }, [searchParameter]);
+  const ref = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const handleOutSideClick = (event: MouseEvent) => {
+      if (
+        !ref.current?.contains(event.target as Node) &&
+        dropDownMenuVisibility &&
+        searchParameter === "none"
+      ) {
+        setDropDownMenuVisibility(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [dropDownMenuVisibility, setDropDownMenuVisibility, searchParameter]);
 
   return (
-    <span className="relative top-1 z-10 h-0 w-full min-w-40 house-break:w-1/2">
+    <span
+      className="relative top-1 z-10 h-0 w-full min-w-40 house-break:w-1/2"
+      ref={ref}
+    >
       <ul
         className={tm(
           "rounded-lg border border-black bg-default-white p-1",
@@ -31,7 +59,7 @@ const DropDownMenu = ({ setSearchParameter, dark }: DropDownMenuFilter) => {
             handlePerPriceSearchOptionClick();
           }}
         >
-          per price
+          Per Price
         </li>
         <li
           className={tm(
@@ -42,10 +70,11 @@ const DropDownMenu = ({ setSearchParameter, dark }: DropDownMenuFilter) => {
             handlePerCitySearchOptionClick();
           }}
         >
-          per city
+          Per City
         </li>
       </ul>
     </span>
   );
 };
+
 export default DropDownMenu;
