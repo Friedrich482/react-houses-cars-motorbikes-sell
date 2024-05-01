@@ -1,14 +1,16 @@
-import Houses from "../components/House";
+import Vehicles from "../components/Vehicule";
+import { CarsData } from "../components/Vehicule";
 import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
 import SearchDropDownMenu from "../components/Search/";
 import { useState } from "react";
-const HousesPage = ({ dark }: DarkModeProps) => {
+
+const CarsPage = ({ dark }: DarkModeProps) => {
   const [priceSearch, setPriceSearch] = useState(0);
   const [citySearch, setCitySearch] = useState("");
   const [dropDownMenuVisibility, setDropDownMenuVisibility] = useState(false);
   const [searchParameter, setSearchParameter] = useState("none");
-  const isVehicle = false;
+  const isVehicle = true;
   return (
     <main className="flex min-h-[100vh] flex-col gap-12">
       <section className="flex items-center justify-center gap-3 max-house-break:flex-col">
@@ -18,7 +20,7 @@ const HousesPage = ({ dark }: DarkModeProps) => {
             dark && "text-white",
           )}
         >
-          Houses
+          Cars
         </h2>
         <SearchDropDownMenu
           dark={dark}
@@ -38,14 +40,15 @@ const HousesPage = ({ dark }: DarkModeProps) => {
           "flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10",
         )}
       >
-        <Houses
+        <Vehicles
           dark={dark}
           priceSearch={priceSearch}
           citySearch={citySearch}
           searchParameter={searchParameter}
+          vehicleData={CarsData}
         />
       </section>
     </main>
   );
 };
-export default HousesPage;
+export default CarsPage;

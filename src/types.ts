@@ -65,7 +65,7 @@ export type SearchCity = {
 export type SearchDropDownMenuProps = SearchPrice &
   SearchCity &
   DropDownMenuFilterVisibility &
-  DropDownMenuFilter;
+  DropDownMenuFilter & { isVehicle: boolean };
 
 export type DefaultSearchBarProps = dark &
   Omit<DropDownMenuFilter, "setSearchParameter">;
@@ -79,3 +79,19 @@ export type DropDownMenuFilterVisibility = {
   dropDownMenuVisibility: boolean;
   setDropDownMenuVisibility: React.Dispatch<React.SetStateAction<boolean>>;
 };
+type unitVehicle = {
+  id: number;
+  src: string;
+  price: number;
+  sold: boolean;
+};
+export type Vehicle = unitVehicle &
+  dark &
+  Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
+
+export type VehicleData = unitVehicle[];
+
+export type VehiclesProps = { vehicleData: VehicleData } & dark &
+  Omit<SearchPrice, "setPriceSearch"> &
+  Omit<SearchCity, "setCitySearch"> &
+  Omit<DropDownMenuFilter, "setSearchParameter">;

@@ -16,6 +16,7 @@ const SearchDropDownMenu = ({
   setCitySearch,
   searchParameter,
   setSearchParameter,
+  isVehicle,
 }: SearchDropDownMenuProps) => {
   const handleSearchDropDownMenuClick = () => {
     setDropDownMenuVisibility(true);
@@ -59,13 +60,15 @@ const SearchDropDownMenu = ({
               />
             </>
           ) : (
-            <>
-              <SearchCityBar
-                dark={dark}
-                citySearch={citySearch}
-                setCitySearch={setCitySearch}
-              />
-            </>
+            !isVehicle && (
+              <>
+                <SearchCityBar
+                  dark={dark}
+                  citySearch={citySearch}
+                  setCitySearch={setCitySearch}
+                />
+              </>
+            )
           )}
         </div>
         {dropDownMenuVisibility && searchParameter === "none" ? (
@@ -75,6 +78,7 @@ const SearchDropDownMenu = ({
             dark={dark}
             dropDownMenuVisibility={dropDownMenuVisibility}
             setDropDownMenuVisibility={setDropDownMenuVisibility}
+            isVehicle={isVehicle}
           />
         ) : null}
         <IoIosCloseCircleOutline

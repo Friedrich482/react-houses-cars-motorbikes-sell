@@ -8,7 +8,9 @@ const DropDownMenu = ({
   dark,
   dropDownMenuVisibility,
   setDropDownMenuVisibility,
-}: DropDownMenuFilter & DropDownMenuFilterVisibility) => {
+  isVehicle,
+}: DropDownMenuFilter &
+  DropDownMenuFilterVisibility & { isVehicle: boolean }) => {
   const handlePerPriceSearchOptionClick = () => {
     setSearchParameter("price");
     setDropDownMenuVisibility(false);
@@ -61,17 +63,20 @@ const DropDownMenu = ({
         >
           Per Price
         </li>
-        <li
-          className={tm(
-            "cursor-pointer rounded-lg text-center hover:bg-neutral-300",
-            dark && "hover:bg-neutral-800",
-          )}
-          onClick={() => {
-            handlePerCitySearchOptionClick();
-          }}
-        >
-          Per City
-        </li>
+
+        {!isVehicle && (
+          <li
+            className={tm(
+              "cursor-pointer rounded-lg text-center hover:bg-neutral-300",
+              dark && "hover:bg-neutral-800",
+            )}
+            onClick={() => {
+              handlePerCitySearchOptionClick();
+            }}
+          >
+            Per City
+          </li>
+        )}
       </ul>
     </span>
   );
