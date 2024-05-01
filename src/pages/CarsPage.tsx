@@ -1,5 +1,5 @@
 import Vehicles from "../components/Vehicule";
-import CarsData from "../components/Vehicule";
+import { CarsData } from "../components/Vehicule";
 import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
 import SearchDropDownMenu from "../components/Search/";
@@ -39,12 +39,13 @@ const CarsPage = ({ dark }: DarkModeProps) => {
           "flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10",
         )}
       >
-        {/* <Houses
+        <Vehicles
           dark={dark}
           priceSearch={priceSearch}
           citySearch={citySearch}
           searchParameter={searchParameter}
-        /> */}
+          vehicleData={CarsData}
+        />
       </section>
     </main>
   );
