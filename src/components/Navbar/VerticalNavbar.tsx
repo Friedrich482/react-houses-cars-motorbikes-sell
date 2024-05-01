@@ -109,7 +109,7 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
                 dark && "text-default-white",
               )}
             >
-              Cars
+              <Link to={"/cars"}>Cars</Link>
             </li>
             <li
               className={tm(
@@ -117,7 +117,7 @@ const VerticalNavbar = ({ dark }: DarkModeProps) => {
                 dark && "text-default-white",
               )}
             >
-              Motorbikes
+              <Link to={"/motorbikes"}>Motorbikes</Link>
             </li>
           </ul>
         </div>

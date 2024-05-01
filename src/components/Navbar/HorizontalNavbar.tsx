@@ -34,7 +34,7 @@ const HorizontalNavbar = ({ dark }: DarkModeProps) => {
             dark && "hover:text-white",
           )}
         >
-          Cars
+          <Link to="/cars">Cars</Link>
         </li>
         <li
           className={tm(
@@ -42,7 +42,7 @@ const HorizontalNavbar = ({ dark }: DarkModeProps) => {
             dark && "hover:text-white",
           )}
         >
-          Motorbikes
+          <Link to="/motorbikes">Motorbikes</Link>
         </li>
       </ul>
     </div>

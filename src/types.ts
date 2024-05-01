@@ -65,7 +65,7 @@ export type SearchCity = {
 export type SearchDropDownMenuProps = SearchPrice &
   SearchCity &
   DropDownMenuFilterVisibility &
-  DropDownMenuFilter;
+  DropDownMenuFilter & { isVehicle: boolean };
 
 export type DefaultSearchBarProps = dark &
   Omit<DropDownMenuFilter, "setSearchParameter">;
