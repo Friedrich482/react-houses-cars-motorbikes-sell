@@ -79,3 +79,11 @@ export type DropDownMenuFilterVisibility = {
   dropDownMenuVisibility: boolean;
   setDropDownMenuVisibility: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type Vehicle = {
+  id: number;
+  src: string;
+  price: number;
+  sold: boolean;
+} & dark &
+  Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;

@@ -9,6 +9,7 @@ import { useState } from "react";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import HousesPage from "./pages/HousesPage";
+import CarsPage from "./pages/CarsPage";
 function App() {
   const [dark, setDark] = useState(false);
 
@@ -19,6 +20,10 @@ function App() {
         <Route
           path="/houses"
           element={<HousesPage dark={dark} setDark={setDark} />}
+        />
+        <Route
+          path="/cars"
+          element={<CarsPage dark={dark} setDark={setDark} />}
         />
       </Route>,
     ),
