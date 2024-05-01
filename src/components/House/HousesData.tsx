@@ -18,7 +18,7 @@ const HousesData = [
   {
     id: 1,
     src: House1,
-    location: "NashVille",
+    location: "Nashville",
     price: 120000,
     sold: false,
   },

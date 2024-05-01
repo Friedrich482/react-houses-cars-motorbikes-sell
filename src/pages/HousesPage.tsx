@@ -32,7 +32,11 @@ const HousesPage = ({ dark }: DarkModeProps) => {
           setSearchParameter={setSearchParameter}
         />
       </section>
-      <section className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
+      <section
+        className={tm(
+          "flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10",
+        )}
+      >
         <Houses
           dark={dark}
           priceSearch={priceSearch}

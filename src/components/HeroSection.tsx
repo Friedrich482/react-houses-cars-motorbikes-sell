@@ -23,8 +23,8 @@ const HeroSection = ({ dark }: DarkModeProps) => {
       <a href="#heroSection">
         <button
           className={tm(
-            "mt-5 rounded-lg bg-black p-3 pl-8 pr-8 text-xl text-default-white",
-            dark && "bg-default-white text-default-black",
+            "mt-5 rounded-lg bg-black p-3 pl-8 pr-8 text-xl text-default-white hover:bg-neutral-800",
+            dark && "bg-default-white text-default-black hover:bg-neutral-300",
           )}
         >
           Discover us

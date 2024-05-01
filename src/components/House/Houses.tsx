@@ -99,7 +99,17 @@ const Houses = ({
             No houses found at {priceSearch} $
           </p>
         ) : (
-          filteredPerPriceHouses
+          <>
+            <p className={tm("text-2xl", dark && "text-neutral-400")}>
+              <b className={tm("", dark && "text-white")}>
+                {filteredPerPriceHouses.length}
+              </b>{" "}
+              houses found at {priceSearch}$
+            </p>
+            <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
+              {filteredPerPriceHouses}
+            </div>
+          </>
         )
       ) : citySearch === "" ? (
         houses
@@ -113,7 +123,17 @@ const Houses = ({
           No houses found at {citySearch}
         </p>
       ) : (
-        filteredPerCityHouses
+        <>
+          <p className={tm("text-2xl", dark && "text-neutral-400")}>
+            <b className={tm("", dark && "text-white")}>
+              {filteredPerCityHouses.length}
+            </b>{" "}
+            houses found at {citySearch}
+          </p>
+          <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
+            {filteredPerCityHouses}
+          </div>
+        </>
       )}
       <Dialog
         openModal={openModal}
