@@ -49,6 +49,7 @@ const Vehicles = ({
       toggleModal={toggleModal}
       setYesButtonDialog={setYesButtonDialog}
       yesButtonDialog={yesButtonDialog}
+      vehicleSelected={vehicleSelected}
     />
   ));
   const filteredPerPriceVehicles = vehicleData
@@ -65,6 +66,7 @@ const Vehicles = ({
         toggleModal={toggleModal}
         setYesButtonDialog={setYesButtonDialog}
         yesButtonDialog={yesButtonDialog}
+        vehicleSelected={vehicleSelected}
       />
     ));
 

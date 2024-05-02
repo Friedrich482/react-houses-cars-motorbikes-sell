@@ -96,7 +96,7 @@ export type Vehicle = unitVehicle &
     | "openModal"
     | "vehicleSelected"
     | "isVehicle"
-  >;
+  > & { vehicleSelected: string };
 
 export type VehicleData = unitVehicle[];
 
@@ -107,3 +107,7 @@ export type VehiclesProps = { vehicleData: VehicleData } & dark &
     vehicleSelected: string;
     isVehicle: boolean;
   };
+
+export type VehiclePageProps = dark & { vehicleSelected: string } & {
+  vehicleData: VehicleData;
+};
