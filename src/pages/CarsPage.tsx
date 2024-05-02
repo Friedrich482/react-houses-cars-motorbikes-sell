@@ -10,6 +10,7 @@ const CarsPage = ({ dark }: DarkModeProps) => {
   const [citySearch, setCitySearch] = useState("");
   const [dropDownMenuVisibility, setDropDownMenuVisibility] = useState(false);
   const [searchParameter, setSearchParameter] = useState("none");
+  const vehicleSelected = "Car";
   const isVehicle = true;
   return (
     <main className="flex min-h-[100vh] flex-col gap-12">
@@ -20,7 +21,7 @@ const CarsPage = ({ dark }: DarkModeProps) => {
             dark && "text-white",
           )}
         >
-          Cars
+          {`${vehicleSelected}s`}
         </h2>
         <SearchDropDownMenu
           dark={dark}
@@ -46,6 +47,8 @@ const CarsPage = ({ dark }: DarkModeProps) => {
           citySearch={citySearch}
           searchParameter={searchParameter}
           vehicleData={CarsData}
+          vehicleSelected={vehicleSelected}
+          isVehicle={isVehicle}
         />
       </section>
     </main>

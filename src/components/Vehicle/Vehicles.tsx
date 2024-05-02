@@ -9,8 +9,9 @@ const Vehicles = ({
   priceSearch,
   searchParameter,
   vehicleData,
+  vehicleSelected,
+  isVehicle,
 }: VehiclesProps) => {
-  const vehicleSelected: string = "car"; // don't forget to add motorbikes
   const [tempPrice, setTempPrice] = useState<number>(0);
   const [openModal, setOpenModal] = useState(false);
   const [yesButtonDialog, setYesButtonDialog] = useState(false);
@@ -80,7 +81,7 @@ const Vehicles = ({
             dark && "text-white",
           )}
         >
-          {`No ${vehicleSelected}s found at ${priceSearch} $`}
+          {`No ${vehicleSelected.toLowerCase()}s found at ${priceSearch} $`}
         </p>
       ) : (
         <>
@@ -89,8 +90,8 @@ const Vehicles = ({
               {filteredPerPriceVehicles.length}
             </b>{" "}
             {filteredPerPriceVehicles.length === 1
-              ? `${vehicleSelected} found at ${priceSearch}$`
-              : `${vehicleSelected}s found at ${priceSearch}$`}
+              ? `${vehicleSelected.toLocaleLowerCase()} found at ${priceSearch}$`
+              : `${vehicleSelected.toLocaleLowerCase()}s found at ${priceSearch}$`}
           </p>
           <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
             {filteredPerPriceVehicles}
@@ -106,6 +107,8 @@ const Vehicles = ({
         dark={dark}
         yesButtonDialog={yesButtonDialog}
         setYesButtonDialog={setYesButtonDialog}
+        vehicleSelected={vehicleSelected}
+        isVehicle={isVehicle}
       />
     </>
   );
