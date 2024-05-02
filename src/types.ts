@@ -84,6 +84,7 @@ type unitVehicle = {
   src: string;
   price: number;
   sold: boolean;
+  name: string;
 };
 export type Vehicle = unitVehicle &
   dark &

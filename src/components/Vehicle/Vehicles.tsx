@@ -10,7 +10,7 @@ const Vehicles = ({
   searchParameter,
   vehicleData,
 }: VehiclesProps) => {
-  const vehicleSelected: string = "car";
+  const vehicleSelected: string = "car"; // don't forget to add motorbikes
   const [tempPrice, setTempPrice] = useState<number>(0);
   const [openModal, setOpenModal] = useState(false);
   const [yesButtonDialog, setYesButtonDialog] = useState(false);
@@ -36,13 +36,15 @@ const Vehicles = ({
       dialogRef.current?.showModal();
     }
   };
-  const vehicles = vehicleData.map(({ src, id, price, sold }) => (
+  const vehicles = vehicleData.map(({ src, id, price, sold, name }) => (
     <Vehicle
       src={src}
       id={id}
+      key={id}
       dark={dark}
       price={price}
       sold={sold}
+      name={name}
       toggleModal={toggleModal}
       setYesButtonDialog={setYesButtonDialog}
       yesButtonDialog={yesButtonDialog}
@@ -50,13 +52,15 @@ const Vehicles = ({
   ));
   const filteredPerPriceVehicles = vehicleData
     .filter(({ price }) => priceSearch === price)
-    .map(({ src, id, price, sold }) => (
+    .map(({ src, id, price, sold, name }) => (
       <Vehicle
         src={src}
         id={id}
+        key={id}
         dark={dark}
         price={price}
         sold={sold}
+        name={name}
         toggleModal={toggleModal}
         setYesButtonDialog={setYesButtonDialog}
         yesButtonDialog={yesButtonDialog}
@@ -84,7 +88,7 @@ const Vehicles = ({
             <b className={tm("", dark && "text-white")}>
               {filteredPerPriceVehicles.length}
             </b>{" "}
-            houses found at {priceSearch}$
+            {vehicleSelected} found at {priceSearch}$
           </p>
           <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
             {filteredPerPriceVehicles}

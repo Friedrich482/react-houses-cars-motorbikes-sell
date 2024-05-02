@@ -1,5 +1,5 @@
-import Vehicles from "../components/Vehicule";
-import { CarsData } from "../components/Vehicule";
+import Vehicles from "../components/Vehicle";
+import { CarsData } from "../components/Vehicle";
 import type { DarkModeProps } from "../types";
 import { twMerge as tm } from "tailwind-merge";
 import SearchDropDownMenu from "../components/Search/";
