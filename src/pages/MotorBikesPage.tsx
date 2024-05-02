@@ -1,14 +1,14 @@
-import { CarsData } from "../components/Vehicle";
+import { MotorBikesData } from "../components/Vehicle";
 import type { DarkModeProps } from "../types";
 import VehiclesPage from "./VehiclesPage";
 
 const CarsPage = ({ dark }: DarkModeProps) => {
-  const vehicleSelected = "Car";
+  const vehicleSelected = "Motorbike";
   return (
     <VehiclesPage
       dark={dark}
       vehicleSelected={vehicleSelected}
-      vehicleData={CarsData}
+      vehicleData={MotorBikesData}
     />
   );
 };

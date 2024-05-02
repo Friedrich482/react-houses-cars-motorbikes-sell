@@ -25,7 +25,7 @@ export type ModalProps = {
   tempPrice: number;
   yesButtonDialog: boolean;
   setYesButtonDialog: React.Dispatch<React.SetStateAction<boolean>>;
-} & dark;
+} & dark & { vehicleSelected: string; isVehicle: boolean };
 
 export type House = HouseProps &
   dark &
@@ -88,11 +88,26 @@ type unitVehicle = {
 };
 export type Vehicle = unitVehicle &
   dark &
-  Omit<ModalProps, "dialogRef" | "setOpenModal" | "tempPrice" | "openModal">;
+  Omit<
+    ModalProps,
+    | "dialogRef"
+    | "setOpenModal"
+    | "tempPrice"
+    | "openModal"
+    | "vehicleSelected"
+    | "isVehicle"
+  > & { vehicleSelected: string };
 
 export type VehicleData = unitVehicle[];
 
 export type VehiclesProps = { vehicleData: VehicleData } & dark &
   Omit<SearchPrice, "setPriceSearch"> &
   Omit<SearchCity, "setCitySearch"> &
-  Omit<DropDownMenuFilter, "setSearchParameter">;
+  Omit<DropDownMenuFilter, "setSearchParameter"> & {
+    vehicleSelected: string;
+    isVehicle: boolean;
+  };
+
+export type VehiclePageProps = dark & { vehicleSelected: string } & {
+  vehicleData: VehicleData;
+};

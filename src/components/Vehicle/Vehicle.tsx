@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { SlBadge } from "react-icons/sl";
 import { IoCarSport } from "react-icons/io5";
+import { FaMotorcycle } from "react-icons/fa";
 import { twMerge as tm } from "tailwind-merge";
 import type { Vehicle } from "../../types";
 const Vehicle = ({
@@ -13,6 +14,7 @@ const Vehicle = ({
   toggleModal,
   yesButtonDialog,
   setYesButtonDialog,
+  vehicleSelected,
 }: Vehicle) => {
   const [vehicleSold, setVehicleSold] = useState(sold);
   const houseIdRef = useRef<number | null>(null);
@@ -54,12 +56,21 @@ const Vehicle = ({
           className=" aspect-square h-72  w-full rounded-tl-lg rounded-tr-lg"
         />
         <div className="flex w-5/6 items-center justify-center text-center text-xl">
-          <IoCarSport
-            className={tm(
-              "relative left-3 mb-1 size-6 w-2/6 text-default-black",
-              dark && "text-default-white",
-            )}
-          />
+          {vehicleSelected === "Car" ? (
+            <IoCarSport
+              className={tm(
+                "relative left-3 mb-1 size-6 w-2/6 text-default-black",
+                dark && "text-default-white",
+              )}
+            />
+          ) : (
+            <FaMotorcycle
+              className={tm(
+                "relative left-3 mb-1 size-6 w-2/6 text-default-black",
+                dark && "text-default-white",
+              )}
+            />
+          )}
           <p
             className={tm(
               "w-4/6 text-start text-2xl font-bold text-default-black",
