@@ -1,6 +1,6 @@
 import HouseLight from "../../assets/imgs/cards/houseLight.webp";
 import HouseDark from "../../assets/imgs/cards/houseDark.jpg";
-import Bike from "../../assets/imgs/cards/bikeDark.png";
+import MotorBike from "../../assets/imgs/cards/bikeDark.png";
 import Car from "../../assets/imgs/cards/car.jpg";
 import ArticleCard from "./ArticleCard";
 import type { DarkModeProps } from "../../types";
@@ -19,8 +19,8 @@ const ArticleCards = ({ dark }: DarkModeProps) => {
       dark: dark,
     },
     {
-      name: "Bike",
-      src: Bike,
+      name: "Motorbike",
+      src: MotorBike,
       dark: dark,
     },
   ];
