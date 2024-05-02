@@ -80,7 +80,7 @@ const Vehicles = ({
             dark && "text-white",
           )}
         >
-          No {vehicleSelected} found at {priceSearch} $
+          {`No ${vehicleSelected}s found at ${priceSearch} $`}
         </p>
       ) : (
         <>
@@ -88,7 +88,9 @@ const Vehicles = ({
             <b className={tm("", dark && "text-white")}>
               {filteredPerPriceVehicles.length}
             </b>{" "}
-            {vehicleSelected} found at {priceSearch}$
+            {filteredPerPriceVehicles.length === 1
+              ? `${vehicleSelected} found at ${priceSearch}$`
+              : `${vehicleSelected}s found at ${priceSearch}$`}
           </p>
           <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
             {filteredPerPriceVehicles}

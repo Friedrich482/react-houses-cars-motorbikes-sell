@@ -104,7 +104,9 @@ const Houses = ({
               <b className={tm("", dark && "text-white")}>
                 {filteredPerPriceHouses.length}
               </b>{" "}
-              houses found at {priceSearch}$
+              {filteredPerPriceHouses.length === 1
+                ? `house found at ${priceSearch}$`
+                : `houses found at ${priceSearch}$`}
             </p>
             <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
               {filteredPerPriceHouses}
@@ -128,7 +130,9 @@ const Houses = ({
             <b className={tm("", dark && "text-white")}>
               {filteredPerCityHouses.length}
             </b>{" "}
-            houses found at {citySearch}
+            {filteredPerCityHouses.length === 1
+              ? `house found at ${citySearch}`
+              : `houses found at ${citySearch}`}
           </p>
           <div className="flex w-full flex-wrap items-center justify-center gap-10 pl-10 pr-10">
             {filteredPerCityHouses}
