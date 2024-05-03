@@ -54,7 +54,7 @@ const Dialog = ({
       >
         <h2 className="self-start text-2xl">
           Are you sure to buy this{" "}
-          {isVehicle ? vehicleSelected.toLocaleLowerCase() : "house"} ?
+          {isVehicle ? vehicleSelected?.toLocaleLowerCase() : "house"} ?
         </h2>
         <p className="self-start">
           You will be charged <b>{tempPrice}</b> $ for this sale

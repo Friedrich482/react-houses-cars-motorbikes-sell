@@ -25,7 +25,7 @@ export type ModalProps = {
   tempPrice: number;
   yesButtonDialog: boolean;
   setYesButtonDialog: React.Dispatch<React.SetStateAction<boolean>>;
-} & dark & { vehicleSelected: string; isVehicle: boolean };
+} & dark & { vehicleSelected?: string; isVehicle?: boolean };
 
 export type House = HouseProps &
   dark &
