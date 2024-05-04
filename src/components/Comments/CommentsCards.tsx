@@ -1,6 +1,6 @@
 import usersData from "./usersData";
 import type { User, DarkModeProps } from "../../types";
-import CommentCard from "./Commentcard";
+import CommentCard from "./CommentCard";
 import { twMerge as tm } from "tailwind-merge";
 
 const CommentsCards = ({ dark }: DarkModeProps) => {
