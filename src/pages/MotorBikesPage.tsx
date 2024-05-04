@@ -3,6 +3,7 @@ import type { DarkModeProps } from "../types";
 import VehiclesPage from "./VehiclesPage";
 
 const CarsPage = ({ dark }: DarkModeProps) => {
+  document.title = "Motorbikes";
   const vehicleSelected = "Motorbike";
   return (
     <VehiclesPage

@@ -4,6 +4,7 @@ import { twMerge as tm } from "tailwind-merge";
 import SearchDropDownMenu from "../components/Search/";
 import { useState } from "react";
 const HousesPage = ({ dark }: DarkModeProps) => {
+  document.title = "Houses";
   const [priceSearch, setPriceSearch] = useState(0);
   const [citySearch, setCitySearch] = useState("");
   const [dropDownMenuVisibility, setDropDownMenuVisibility] = useState(false);

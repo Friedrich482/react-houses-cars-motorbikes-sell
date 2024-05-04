@@ -4,6 +4,7 @@ import Description from "../components/Description";
 import ArticleCards from "../components/Articles";
 import CommentsCards from "../components/Comments/CommentsCards";
 const HomePage = ({ dark, setDark }: DarkModeProps) => {
+  document.title = "Home";
   return (
     <main className="flex flex-col">
       <HeroSection dark={dark} setDark={setDark} />
