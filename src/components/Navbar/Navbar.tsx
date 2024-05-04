@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { MdDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
-import { FaGithub, FaDesktop } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import type { DarkModeProps } from "../../types";
 import { twMerge as tm } from "tailwind-merge";
 import HorizontalNavbar from "./HorizontalNavbar";
@@ -107,15 +107,6 @@ const Navbar = ({ dark, setDark }: DarkModeProps) => {
           >
             <MdDarkMode />
             Dark
-          </li>
-          <li
-            className={tm(
-              "flex cursor-pointer items-center justify-start gap-2 rounded-lg p-1  pl-2 text-start text-black hover:bg-neutral-300",
-              dark && "text-white hover:bg-neutral-800",
-            )}
-          >
-            <FaDesktop />
-            System
           </li>
         </ul>
       </span>

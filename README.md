@@ -30,9 +30,7 @@ Nota Bene : The project has dark mode and is fully responsive
 
 <img width="950" alt="Image of the MotorBikes : lightmode" src="https://github.com/Friedrich482/react-houses-cars-motorbikes-sell/assets/136119888/c6ac8102-319d-498c-9131-6fd69041051d">
 
-
 <img width="950" alt="Image of the MotorBikes : darkmode" src="https://github.com/Friedrich482/react-houses-cars-motorbikes-sell/assets/136119888/ce221f1e-3d5c-42cb-9362-e68cfeb11964">
-
 
 ## Run the application
 
